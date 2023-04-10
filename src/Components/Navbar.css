@@ -1,0 +1,61 @@
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@600&display=swap");
+body {
+  margin: 0;
+  line-height: normal;
+}
+:root {
+  /* fonts */
+  --font-cairo: Cairo;
+  --font-outfit: Outfit;
+
+  /* font sizes */
+  --font-size-13xl: 18px;
+
+  /* Colors */
+  --color-black: #000;
+}
+
+
+.navContainer{
+  z-index: 2;
+  background-color: #000000d9;
+  position: fixed;
+  height: 8vh;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.navbar{
+  height: 100%;
+  width: 50%;
+  display: flex;
+  justify-content: space-evenly;
+  gap: 2%;
+}
+
+.navbar div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+a{
+  text-decoration: none;
+  color: white;
+  font-family: (var(--font-outfit));
+  font-size: var(--font-size-13xl);
+}
+
+.showsync {
+  font-size: 28px;
+  font-variant: small-caps;
+  font-style: oblique;
+  color: white;
+  font-family: var(--font-cairo);
+}
+
+.hover:hover{
+  color: red;
+}
