@@ -19,9 +19,11 @@ const MoviesContainer = (props) => {
     <Link to={`/${props.movie.media_type}/${props.movie.id}`}>
       <img src={movie.image} alt={movie.title} />
     </Link>
-      {/* <div className="text-overlay">
+    <Link to={`/${props.movie.media_type}/${props.movie.id}`}>
+      <div className="text-overlay">
         <div>{movie.title}</div>
-      </div> */}
+      </div>
+      </Link>
     </div>
   );
 };

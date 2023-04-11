@@ -9,7 +9,7 @@
 }
 
 .head-pic{
-    height: 70vh;
+    height: 90vh;
     overflow: hidden;
 }
 
@@ -141,7 +141,15 @@ div li{
 .overlay-data{
     position:sticky;
     bottom:0vh;
+    
 }
+
+.overlay-data h1{
+    color: white;
+    text-align:start ;
+    padding-left: 35%;
+}
+
 
 .options button{
     font-family: Poppins;

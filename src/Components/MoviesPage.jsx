@@ -1,24 +1,26 @@
 import React, { useEffect, useReducer, useState } from "react";
 import MoviesContainer from "./MoviesContainer";
 import './Container.css';
-import axios from "axios";
 import { useQuery } from "react-query";
-import { ClipLoader } from "react-spinners";
+import { getTrending } from "./api/functions";
 
 
 const MoviesPage = (props) => {
 
     const [data,setdata] =useState(null);
-
-    const [api,setapi]=useState({
-        base:"https://api.themoviedb.org/3/",
-        list:"trending",
-        duration:"week",
-        key:"e1658c90abf398d981563e797535c57e"
-    })
-
-
     const initial=1;
+    const [page,dispatch]=useReducer(reducer,initial,init)
+
+
+
+    useEffect(()=>{
+        getMovies()
+    },[page,props.type])
+    useEffect(()=>{
+        dispatch("reset")
+    },[props.type])
+
+
     function reducer(page,operation){
         switch(operation){
             case "add":
@@ -31,31 +33,22 @@ const MoviesPage = (props) => {
                 return page;
         }
     }
-
-    const [page,dispatch]=useReducer(reducer,initial,init)
-
-    function init(initial,page){
+    function init(initial){
         return 1;
     }
-
-    console.log(`${api.base}${props.type}/${api.duration}?page=${page}&api_key=${api.key}`);
-    
     async function getMovies(){
         setdata(null);
-        const res=await axios.get(`${api.base}${api.list}/${props.type}/${api.duration}?page=${page}&api_key=${api.key}`);
-        setdata(res.data.results);    
+        await getTrending(props.type,"day",page)
+        .then((result)=>{
+            setdata(result.results);
+            console.log(result.results);
+        })
     }
     console.log(data);
-
-    useEffect(()=>{
-        getMovies()
-    },[page,props.type])
-    useEffect(()=>{
-        dispatch("reset")
-    },[props.type])
-
-
+    let {isError,isLoading}=useQuery("movies",getMovies)
     let media=props.type;
+    let message=""
+
     if(props.type==="all"){
         media=""
     }
@@ -65,10 +58,6 @@ const MoviesPage = (props) => {
     else if(props.type==="tv"){
         media="Tv Shows"
     }
-
-    let {temp,error,isError,isLoading}=useQuery("movies",getMovies)
-
-    let message=""
 
     if(isLoading){
         message="Loading...."

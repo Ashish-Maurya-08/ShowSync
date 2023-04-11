@@ -25,6 +25,12 @@ body {
   display: flex;
   justify-content: center;
   width: 100%;
+  transition: all 0.4s ease-out;
+}
+
+.navContainer:hover{
+  background-color: #000;
+  transition: all 0.4s ease-in;
 }
 
 .navbar{

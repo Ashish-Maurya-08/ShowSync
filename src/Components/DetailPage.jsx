@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import './main.css'
-import getDetail from "./api/functions"
+import {getDetail} from "./api/functions"
 
 const DetailPage=(props)=>{
     const {id}=useParams()
@@ -10,28 +10,25 @@ const DetailPage=(props)=>{
 
     const [detail,setDetail]=useState([]);
 
-    const temp=getDetail(id).then(res=>{console.log(res);});
-    // console.log(temp);
-
     const api={
-        base:"https://api.themoviedb.org/3/",
-        id:id,
-        type:"",
-        key:"e1658c90abf398d981563e797535c57e",
         image:"https://image.tmdb.org/t/p/original/"
     }
 
     console.log(props.type);
 
     async function getDetails(){
-        const res=await axios.get(`${api.base}${props.type}/${id}?api_key=${api.key}`)
-        setDetail(res.data);
-    }
+        await getDetail(id,props.type)
+        .then(result =>{
+            setDetail(result)
+        })
+    } 
 
     useEffect(()=>{
         getDetails();
     },[props.type])
-    // console.log(detail);
+
+
+    console.log(detail);
     let title=detail.title;
     if(!title){
         title=detail.name;
@@ -48,12 +45,12 @@ const DetailPage=(props)=>{
         </img>
         <div className="overlay-data">
 
-        <h1 style={{color:"white"}}>{title}</h1>
+        <h1>{title}</h1>
             <div className='mid-top-ul'>
             {/* <div style={{width:"40%"}}></div> */}
             
                 <li>
-                <span className="bold">{detail.vote_average}</span>
+                <span className="bold">{Math.round(detail.vote_average*10)}%</span>
                 <span className="dull">{detail.vote_count} votes</span>
                 </li>
                 <li>
