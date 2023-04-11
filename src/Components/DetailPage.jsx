@@ -3,6 +3,9 @@ import React, { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import './main.css'
 import {getDetail} from "./api/functions"
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import HeartBrokenIcon from '@mui/icons-material/HeartBroken';
+
 
 const DetailPage=(props)=>{
     const {id}=useParams()
@@ -48,9 +51,18 @@ const DetailPage=(props)=>{
         <h1>{title}</h1>
             <div className='mid-top-ul'>
             {/* <div style={{width:"40%"}}></div> */}
-            
+
+
                 <li>
-                <span className="bold">{Math.round(detail.vote_average*10)}%</span>
+                <span className="bold" style={{display:"flex",alignItems:"center",gap:"4px"}}>
+                {
+                    detail.vote_average>5?
+                <FavoriteIcon style={{color:"red",fontSize:"19px"}} />
+                :
+                <HeartBrokenIcon style={{color:"grey",fontSize:"19px"}} />
+
+                }
+                 {Math.round(detail.vote_average*10)}%</span>
                 <span className="dull">{detail.vote_count} votes</span>
                 </li>
                 <li>

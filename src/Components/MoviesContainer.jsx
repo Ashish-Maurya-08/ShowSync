@@ -9,9 +9,14 @@ const MoviesContainer = (props) => {
     title=props.movie.name;
   }
 
+  let path=props.movie.poster_path;
+  if(props.page==="main"){
+    path=props.movie.backdrop_path;
+  }
+
     const movie={
         title:title,
-        image:`https://image.tmdb.org/t/p/original${props.movie.poster_path}`
+        image:`https://image.tmdb.org/t/p/original${path}`
     }
   let type=props.type;
   if(props.type==="all"){

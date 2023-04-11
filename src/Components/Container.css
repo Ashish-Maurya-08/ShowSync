@@ -1,16 +1,17 @@
 .container {
   padding: 1vh 2vw;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  padding-bottom: 5vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  gap: 3vh 1.5vw;
+  justify-content: center;
 }
 
   
   .movies-container{
     position: relative;
-    width: calc(20% - 10px);
-    margin-bottom: 20px;
-    transition: all 2s ease;
+    width: 100%;
+    transition: all 0.5s ease;
     
   }
 
@@ -40,9 +41,12 @@
     right: 0;
     background-color: rgba(0, 0, 0, 0.7);
     padding: 20px;
-    font-family:Poppins;
-    font-weight: 800;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 1.7vw;
+    overflow: hidden;
+    font-weight: bolder;
     color: #fff;
+    border-radius: 10px;
   }
 
 
@@ -61,9 +65,12 @@
 .full_page{
   padding: 8vh 0;
   color: white;
+  font-family: Poppins;
 }
 
 .navigation{
+  font-size: 20px;
+  font-weight: bolder;
   height: 7vh;
   display: flex;
   justify-content: center;
@@ -72,42 +79,3 @@
   font-family: Montserrat;
 }
 
-
-/* CSS */
-button {
-  background-color: #1d628f;
-  border-radius: 3px;
-  border: 1px solid #363636;
-  /* box-shadow: rgba(255, 255, 255, .7) 0 1px 0 0 inset; */
-  box-sizing: border-box;
-  color: #ffffff;
-  cursor: pointer;
-  display: inline-block;
-  font-family: -apple-system,system-ui,"Segoe UI","Liberation Sans",sans-serif;
-  font-size: 13px;
-  font-weight: 400;
-  line-height: 1.15385;
-  margin: 0;
-  outline: none;
-  padding: 8px .8em;
-  position: relative;
-  text-align: center;
-  text-decoration: none;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  vertical-align: baseline;
-  white-space: nowrap;
-}
-
-button:hover {
-  background-color: #b3d3ea;
-  color: #2c5777;
-}
-
-
-button:active {
-  background-color: #a0c7e4;
-  box-shadow: none;
-  color: #2c5777;
-}

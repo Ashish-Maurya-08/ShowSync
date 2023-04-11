@@ -19,13 +19,21 @@ export async function getTrending(type,duration="week",page=1){
     const res=await axios.get(`${api.baseURL}/trending/${type}/${duration}?page=${page}&api_key=${api.key}`)
     return res.data;
 }
-
 export async function getPopular(type,page=1){
 
-    const res=await axios.get(`${api.baseURL}/${type}/top_rated?page=${page}&api_key=${api.key}`)
+    const res=await axios.get(`${api.baseURL}/${type}/popular?page=${page}&api_key=${api.key}&region=IN`)
+    return res.data;
+}
+export async function getTop(type,page=1){
+
+    const res=await axios.get(`${api.baseURL}/${type}/top_rated?page=${page}&api_key=${api.key}&region=IN`)
     return res.data;
 }
 
+export async function getUpcoming(page){
+    const res=await axios.get(`${api.baseURL}/movie/upcoming?page=${page}&api_key=${api.key}`)
+    return res.data;
+}
 export async function getImages(type,id){
     const res=await axios.get(`${api.baseURL}/${type}/${id}/images?api_key=${api.key}`)
     return res.data;

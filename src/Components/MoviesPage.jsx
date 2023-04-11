@@ -1,136 +1,149 @@
-import React, { useEffect, useReducer, useState } from "react";
+import React, { Fragment, useEffect, useReducer, useState } from "react";
 import MoviesContainer from "./MoviesContainer";
 import './Container.css';
-import { useQuery } from "react-query";
-import { getTrending,getPopular } from "./api/functions";
+import { getTrending, getTop, getUpcoming } from "./api/functions";
+import { Button } from "@mui/material";
 
 
 const MoviesPage = (props) => {
 
-    const [data,setdata] =useState(null);
-    const initial=1;
-    const [page,dispatch]=useReducer(reducer,initial,init)
+    const [data, setdata] = useState(null);
+    const initial = 1;
+    const [page, setPage] = useState(1);
+    const [isLoading, setLoad] = useState(true);
+    let isError = false;
 
+    const main_style={}
+    if(props.page==="main"){
+        main_style.gridTemplateColumns="1fr 1fr 1fr"
+    }
 
-    useEffect(()=>{
-        dispatch("reset")
-    },[props.type])
+    useEffect(() => {
+        setPage(1);
+        getMovies();
+    }, [props.page])
 
-    useEffect(()=>{
+    useEffect(() => {
         getMovies()
-    },[page,props.type])
+    }, [page])
+
+    const prevPage = () => {
+        setPage(page - 1);
+    }
+    const nextPage = () => {
+        setPage(page + 1);
+    }
 
 
-    function reducer(page,operation){
-        switch(operation){
-            case "add":
-                return page+1;
-            case "sub":
-                return page-1;
-            case "reset":
-                return 1;
-            default:
-                return page;
-        }
-    }
-    function init(initial){
-        return 1;
-    }
-    async function getMovies(){
+    async function getMovies() {
         setdata(null);
-        if(props.type ==="all"){
+        setLoad(true);
+        if (props.type === "all") {
+            await getTrending(props.type, "day", page)
+                .then((result) => {
+                    setdata(result.results);
+                })
+        }
+        else if (props.type === "movie" && props.page === "popular_movies") {
+            await getTop(props.type, page)
+                .then((result) => {
+                    setdata(result.results);
+                })
+        }
+        else if (props.type === "tv") {
+            await getTop(props.type, page)
+                .then((result) => {
+                    setdata(result.results);
+                })
+        }
 
-            await getTrending(props.type,"day",page)
-            .then((result)=>{
-                setdata(result.results);
-                console.log(result.results);
-            })
+        if (props.page === "upcoming") {
+            await getUpcoming(page)
+                .then((result) => {
+                    setdata(result.results);
+                })
         }
-        else{
-            await getPopular(props.type,page)
-            .then((result)=>{
-                setdata(result.results);
-                console.log(result.results);
-            })
-        }
+        setLoad(false)
     }
+
     console.log(data);
-    let {isError,isLoading}=useQuery("movies",getMovies)
-    let media=props.type;
-    let message=""
+    console.log(page);
+    let media = props.type;
+    let message = ""
 
-    if(props.type==="all"){
-        media=""
+    if (props.type === "all") {
+        media = ""
     }
-    else if(props.type==="movie"){
-        media="Movies"
+    else if (props.type === "movie" && !props.page) {
+        media = "Movies"
     }
-    else if(props.type==="tv"){
-        media="Tv Shows"
-    }
-
-    if(isLoading){
-        message="Loading...."
-    }
-    else if(isError){
-        message="Error"
-    }
-    let Tag="";
-    if(props.type==="all"){
-        Tag="Trending"
-    }
-    else{
-        Tag="Popular"
+    else if (props.type === "tv") {
+        media = "Tv Shows"
     }
 
-  return (
-    <>
-    <div className="full_page">
-    <h1 style={{display:"flex",alignItems:"center",justifyContent:"center",gap:"5px"}}>
-    {
-        isLoading || isError?   
-        (<>
-          {message}  
-        </>):(
-            <>
-            {Tag} 
-    <div style={{color:"red"}}> {media} </div>
-     Right Now
-            </>
-        )
+    if (isLoading) {
+        message = "Loading...."
     }
-    
-     </h1>
-    {
-        !data?
-        (<>
-            <>
-
-            </>
-        </>):
-    (
-    <div className="container">
-    {
-       !isLoading && data.map((item) =>
-    (     
-        <MoviesContainer movie={item} type={props.type}/>
-    )
-    )}
-    </div>
-    )}
-    <div className="navigation">
-    {
-        page==1?
-        (<button disabled="disabled" >Previous</button>):
-        (<button onClick={()=>{dispatch("sub")}}>Previous</button>)
+    else if (isError) {
+        message = "Error"
     }
-        <div>{page}</div>
-        <button onClick={()=>{dispatch("add")}}>Next</button>
-    </div>
+    let Tag = "";
+    if (props.type === "all") {
+        Tag = "Trending"
+    }
+    else if (props.type === "tv") {
+        Tag = "Top Rated"
+    }
+    else {
+        Tag = "Popular"
+    }
+    return (
+        <Fragment>
+            <div className="full_page">
+                <h1 style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "5px" }}>
+                    {
+                        isLoading || isError ?
+                            (<>
+                                {message}
+                            </>) :
+                            (props.page === "upcoming") ?
+                                (<div>Upcoming Movies</div>) :
+                                (
+                                    <>
+                                        {Tag}
+                                        <div style={{ color: "red" }}> {media} </div>
+                                        Right Now
+                                    </>
+                                )
+                    }
 
-    </div>
-    </>
-  );
+                </h1>
+                {
+                    !data ?
+                        (<></>) :
+                        (
+                            <div className="container" style={main_style}>
+                                {
+                                    !isLoading && data.map((item) =>
+                                    (
+                                        <MoviesContainer movie={item} type={props.type} page={props.page} />
+                                    )
+                                    )}
+                            </div>
+                        )}
+                <div className="navigation">
+                    {
+                        page == 1 ?
+                            (<Button variant="contained" color="error">Previous</Button>) :
+                            (<Button variant="contained" onClick={prevPage}>Previous</Button>)
+                    }
+                    <div>{page}</div>
+                    <Button variant="contained" onClick={nextPage}>Next</Button>
+                </div>
+
+            </div>
+        </Fragment>
+    );
 };
 
 export default MoviesPage;

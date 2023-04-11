@@ -8,32 +8,33 @@ body {
   /* fonts */
   --font-cairo: Cairo;
   --font-outfit: Outfit;
-
+  
   /* font sizes */
   --font-size-13xl: 18px;
-
+  
   /* Colors */
   --color-black: #000;
 }
 
 
 .navContainer{
+  background-color: #000000a1;
   z-index: 2;
-  background-color: #000000d9;
   position: fixed;
-  height: 8vh;
+  /* height: 8vh; */
   display: flex;
   justify-content: center;
   width: 100%;
-  transition: all 0.4s ease-out;
+  transition: all 0.7s ease;
 }
 
 .navContainer:hover{
-  background-color: #000;
-  transition: all 0.4s ease-in;
+  background-color: #000000ee;
 }
 
 .navbar{
+  
+  border-radius:0 0 20px 20px;
   height: 100%;
   width: 50%;
   display: flex;
@@ -64,4 +65,8 @@ a{
 
 .hover:hover{
   color: red;
+}
+
+.hidden{
+  display: none;
 }

@@ -1,8 +1,14 @@
 .App {
   text-align: center;
-  background-color: #23272F;
+  /* background-color: #23272F; */
+  background-image: url("./images.jpeg");
+  background-repeat: no-repeat;
+  /* background: linear-gradient(45deg, rgba(16,11,108,1) 0%, rgba(22,55,130,1) 17%, rgba(31,123,186,1) 37%, rgba(4,50,106,1) 56%, rgba(13,93,93,1) 80%, rgba(17,20,112,1) 99%, rgba(37,156,180,1) 100%); */
+  background-size:cover;
   height: 100vh;
   overflow-y: scroll;
+  /* animation: flow infinite 20s ease-in-out; */
+
 }
 
 .App-logo {
@@ -12,7 +18,7 @@
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+    animation: App-logo-spin infinite 20s ease-in-out;
   }
 }
 
@@ -38,4 +44,16 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+@keyframes flow{
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }
