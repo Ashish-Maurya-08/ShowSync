@@ -2,7 +2,7 @@ import React, { useEffect, useReducer, useState } from "react";
 import MoviesContainer from "./MoviesContainer";
 import './Container.css';
 import { useQuery } from "react-query";
-import { getTrending } from "./api/functions";
+import { getTrending,getPopular } from "./api/functions";
 
 
 const MoviesPage = (props) => {
@@ -12,13 +12,13 @@ const MoviesPage = (props) => {
     const [page,dispatch]=useReducer(reducer,initial,init)
 
 
+    useEffect(()=>{
+        dispatch("reset")
+    },[props.type])
 
     useEffect(()=>{
         getMovies()
     },[page,props.type])
-    useEffect(()=>{
-        dispatch("reset")
-    },[props.type])
 
 
     function reducer(page,operation){
@@ -28,7 +28,7 @@ const MoviesPage = (props) => {
             case "sub":
                 return page-1;
             case "reset":
-                return init(initial);
+                return 1;
             default:
                 return page;
         }
@@ -38,11 +38,21 @@ const MoviesPage = (props) => {
     }
     async function getMovies(){
         setdata(null);
-        await getTrending(props.type,"day",page)
-        .then((result)=>{
-            setdata(result.results);
-            console.log(result.results);
-        })
+        if(props.type ==="all"){
+
+            await getTrending(props.type,"day",page)
+            .then((result)=>{
+                setdata(result.results);
+                console.log(result.results);
+            })
+        }
+        else{
+            await getPopular(props.type,page)
+            .then((result)=>{
+                setdata(result.results);
+                console.log(result.results);
+            })
+        }
     }
     console.log(data);
     let {isError,isLoading}=useQuery("movies",getMovies)
@@ -65,6 +75,13 @@ const MoviesPage = (props) => {
     else if(isError){
         message="Error"
     }
+    let Tag="";
+    if(props.type==="all"){
+        Tag="Trending"
+    }
+    else{
+        Tag="Popular"
+    }
 
   return (
     <>
@@ -76,7 +93,7 @@ const MoviesPage = (props) => {
           {message}  
         </>):(
             <>
-            Trending 
+            {Tag} 
     <div style={{color:"red"}}> {media} </div>
      Right Now
             </>
@@ -96,7 +113,7 @@ const MoviesPage = (props) => {
     {
        !isLoading && data.map((item) =>
     (     
-        <MoviesContainer movie={item}/>
+        <MoviesContainer movie={item} type={props.type}/>
     )
     )}
     </div>

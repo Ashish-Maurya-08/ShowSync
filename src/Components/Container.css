@@ -18,7 +18,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    top: 0;
     height: auto;
     animation: fade_in_show 0.4s
   }
@@ -36,10 +35,10 @@
     display: none;
     height: 0;
     bottom:0;
-    /* top: 0; */
+    top: 0;
     left: 0;
     right: 0;
-    background-color: rgba(0, 0, 0, 0.801);
+    background-color: rgba(0, 0, 0, 0.7);
     padding: 20px;
     font-family:Poppins;
     font-weight: 800;

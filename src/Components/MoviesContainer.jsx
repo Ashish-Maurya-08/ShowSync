@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+
 import "./Container.css";
 import { Link } from "react-router-dom";
 
@@ -13,13 +13,17 @@ const MoviesContainer = (props) => {
         title:title,
         image:`https://image.tmdb.org/t/p/original${props.movie.poster_path}`
     }
+  let type=props.type;
+  if(props.type==="all"){
+    type=props.movie.media_type;
+  }
   return (
 
     <div className="movies-container">
-    <Link to={`/${props.movie.media_type}/${props.movie.id}`}>
+    <Link to={`/${type}/${props.movie.id}`}>
       <img src={movie.image} alt={movie.title} />
     </Link>
-    <Link to={`/${props.movie.media_type}/${props.movie.id}`}>
+    <Link to={`/${type}/${props.movie.id}`}>
       <div className="text-overlay">
         <div>{movie.title}</div>
       </div>
