@@ -9,7 +9,7 @@ const Search = ()=>{
 
     const [query,setQuery]=useState();
     const [type,setType]=useState("movie");
-    const [result,setRes]=useState([]);
+    const [result,setRes]=useState();
     const [page,setPage]=useState(1);
 
     const handleSearch = (e)=>{
@@ -52,13 +52,13 @@ const Search = ()=>{
         <Select defaultValue={options[0]} options={options} onChange={(e)=>handleType(e)}/>
         <Button variant="contained" onClick={(e)=>handleSearch(e)}>Search</Button>
         </form>
-        <div>
-        {
-            result.map((result)=>{
-                <div>{result.title}</div>
-            })
-        }
         </div>
+        <div className="container">
+        {
+            result && result.map((result)=>(
+                <MoviesContainer movie={result} type={type}/>
+            ))
+        }
         </div>
         </>
     )

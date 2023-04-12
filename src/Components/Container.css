@@ -13,7 +13,7 @@
     position: relative;
     width: 100%;
     transition: all 0.5s ease;
-    
+
   }
 
   .movies-container:hover .text-overlay{
@@ -21,7 +21,7 @@
     align-items: center;
     justify-content: center;
     height: auto;
-    animation: fade_in_show 0.4s
+    animation: fade_in_show 0.4s;
   }
 
 
