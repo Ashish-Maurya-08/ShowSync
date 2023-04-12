@@ -11,7 +11,7 @@ const NavBar = () => {
     <div className="navContainer">
       <div className="navbar">
         <div>
-          <Link to="/search" className="search hover">Search</Link>
+          <Link to="/search" className="hover">Search</Link>
         </div>
         <div>
           <Link to="/movies" className="movies hover">Movies</Link>
@@ -20,10 +20,10 @@ const NavBar = () => {
           <Link to="/" className="showsync">ShowSync</Link>
         </div>
         <div>
-          <Link to="/tvshows" className="shows hover">Shows</Link>
+          <Link to="/tvshows" className="hover">Shows</Link>
         </div>
         <div>
-          <Link to="/upcoming" className="upcoming hover">Upcoming</Link>
+          <Link to="/upcoming" className="hover">Upcoming</Link>
         </div>
       </div>
     </div>
