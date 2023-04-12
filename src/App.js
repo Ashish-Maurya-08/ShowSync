@@ -21,6 +21,8 @@ function App() {
         <Route path='/movie/:id' element={<DetailPage type="movie"/>}/>
         <Route path='/tv/:id' element={<DetailPage type="tv"/>}/>
       </Routes>
+
+      
     </BrowserRouter>
     </div>
   );
