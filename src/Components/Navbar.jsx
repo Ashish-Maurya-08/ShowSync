@@ -7,12 +7,6 @@ import { Link } from "react-router-dom";
 
 const NavBar = () => {
 
-  function handleScroll(e) {
-    console.log("Scroll");
-  }
-
-  window.addEventListener("navContainer",handleScroll)
-
   return (
     <div className="navContainer">
       <div className="navbar">

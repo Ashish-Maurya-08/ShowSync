@@ -1,13 +1,13 @@
 .App {
-  text-align: center;
   /* background-color: #23272F; */
+  /* background: linear-gradient(45deg, rgba(16,11,108,1) 0%, rgba(22,55,130,1) 17%, rgba(31,123,186,1) 37%, rgba(4,50,106,1) 56%, rgba(13,93,93,1) 80%, rgba(17,20,112,1) 99%, rgba(37,156,180,1) 100%); */
+  /* animation: flow infinite 20s ease-in-out; */
+  text-align: center;
   background-image: url("./images.jpeg");
   background-repeat: no-repeat;
-  /* background: linear-gradient(45deg, rgba(16,11,108,1) 0%, rgba(22,55,130,1) 17%, rgba(31,123,186,1) 37%, rgba(4,50,106,1) 56%, rgba(13,93,93,1) 80%, rgba(17,20,112,1) 99%, rgba(37,156,180,1) 100%); */
   background-size:cover;
   height: 100vh;
   overflow-y: scroll;
-  /* animation: flow infinite 20s ease-in-out; */
 
 }
 
@@ -35,6 +35,35 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.search_page{
+  padding-top: 10vh;
+  width: 100%;
+  height:auto;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  /* align-items: center; */
+}
+
+.search{
+  /* width: 10%; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.search input{
+  /* height: 50px; */
+  font-size: 2rem;
+  font-family: Montserrat;
+  color: white;
+  background: transparent;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid white;
 }
 
 @keyframes App-logo-spin {

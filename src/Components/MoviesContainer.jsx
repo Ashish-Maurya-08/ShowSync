@@ -16,12 +16,14 @@ const MoviesContainer = (props) => {
 
     const movie={
         title:title,
-        image:`https://image.tmdb.org/t/p/original${path}`
+        image:`https://image.tmdb.org/t/p/w500${path}`
     }
   let type=props.type;
   if(props.type==="all"){
     type=props.movie.media_type;
   }
+
+  console.log(title,path);
   return (
 
     <div className="movies-container">

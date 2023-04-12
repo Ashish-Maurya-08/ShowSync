@@ -38,3 +38,8 @@ export async function getImages(type,id){
     const res=await axios.get(`${api.baseURL}/${type}/${id}/images?api_key=${api.key}`)
     return res.data;
 }
+
+export async function getSearch(type,query,page=1){
+    const res=await axios.get(`${api.baseURL}/search/${type}?query=${query}&page=${page}&api_key=${api.key}`);
+    return res.data;
+}

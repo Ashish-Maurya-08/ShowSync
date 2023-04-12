@@ -44,7 +44,7 @@ const DetailPage=(props)=>{
         <div>
         <div className='head-pic'>
         <img 
-        src={`${api.image}${detail.backdrop_path}`} alt="" >   
+        src={`${api.image}${detail.backdrop_path}`} alt="Loading" >   
         </img>
         <div className="overlay-data">
 

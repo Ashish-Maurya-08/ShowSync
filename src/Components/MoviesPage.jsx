@@ -44,7 +44,7 @@ const MoviesPage = (props) => {
                     setdata(result.results);
                 })
         }
-        else if (props.type === "movie" && props.page === "popular_movies") {
+        else if (props.type === "movie" && props.page === "movies") {
             await getTop(props.type, page)
                 .then((result) => {
                     setdata(result.results);
@@ -74,11 +74,11 @@ const MoviesPage = (props) => {
     if (props.type === "all") {
         media = ""
     }
-    else if (props.type === "movie" && !props.page) {
-        media = "Movies"
+    else if (props.type === "movie" && props.page==="movies") {
+        media = " Movies"
     }
     else if (props.type === "tv") {
-        media = "Tv Shows"
+        media = " Tv Shows"
     }
 
     if (isLoading) {
@@ -89,13 +89,13 @@ const MoviesPage = (props) => {
     }
     let Tag = "";
     if (props.type === "all") {
-        Tag = "Trending"
+        Tag = "Trending Right Now"
     }
     else if (props.type === "tv") {
-        Tag = "Top Rated"
+        Tag = "Top Rated "
     }
     else {
-        Tag = "Popular"
+        Tag = "Popular "
     }
     return (
         <Fragment>
@@ -112,7 +112,6 @@ const MoviesPage = (props) => {
                                     <>
                                         {Tag}
                                         <div style={{ color: "red" }}> {media} </div>
-                                        Right Now
                                     </>
                                 )
                     }

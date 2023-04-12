@@ -2,9 +2,10 @@
   padding: 1vh 2vw;
   padding-bottom: 5vh;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   gap: 3vh 1.5vw;
   justify-content: center;
+  height: 100vh;
 }
 
   
