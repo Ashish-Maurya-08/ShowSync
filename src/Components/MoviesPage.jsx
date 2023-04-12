@@ -15,7 +15,7 @@ const MoviesPage = (props) => {
 
     const main_style={}
     if(props.page==="main"){
-        main_style.gridTemplateColumns="1fr 1fr 1fr"
+        main_style.gridTemplateColumns="1fr 1fr 1fr 1fr"
     }
 
     useEffect(() => {
