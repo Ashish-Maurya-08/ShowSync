@@ -8,7 +8,7 @@ import Search from "./Components/Search";
 function App() {
 
   return (
-    <div className="App">
+    <div className="Apps">
     <BrowserRouter>
     <Navbar/>
       <Routes>
