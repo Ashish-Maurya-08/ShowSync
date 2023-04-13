@@ -5,8 +5,12 @@
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   gap: 3vh 1.5vw;
   justify-content: center;
-  /* height: 100vh; */
 }
+
+::-webkit-scrollbar{
+  display: none;
+}
+
 
   
   .movies-container{

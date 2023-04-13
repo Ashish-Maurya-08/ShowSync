@@ -39,6 +39,10 @@ const DetailPage=(props)=>{
 
     const genre=detail.genres;
     const budget=detail.budget/1000000;
+    let runtime=0;
+    if(detail.runtime){
+        runtime=detail.runtime;
+    }
 
     return(
         <div>
@@ -121,7 +125,7 @@ const DetailPage=(props)=>{
                 </li>
                 <li>
                 <span className="bold">Runtime:</span>
-                <span className="dull">{detail.runtime}min</span>
+                <span className="dull">{runtime}min</span>
                 </li>
                 </>
             }
