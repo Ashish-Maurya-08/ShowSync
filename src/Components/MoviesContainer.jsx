@@ -21,8 +21,6 @@ const MoviesContainer = (props) => {
   if(props.type==="all"){
     type=props.movie.media_type;
   }
-
-  console.log(title,path);
   return (
     <div className="movies-container">
     <Link to={`/${type}/${props.movie.id}`}>
