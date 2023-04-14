@@ -3,6 +3,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import Select from 'react-select'
 import { getSearch } from "./api/functions";
 import MoviesContainer from "./MoviesContainer";
+import { Button } from "@mui/material";
 
 const Search = ()=>{
 
@@ -11,11 +12,19 @@ const Search = ()=>{
     const [result,setRes]=useState();
     const [page,setPage]=useState(1);
 
+    const prevPage = () => {
+        setPage(page - 1);
+    }
+    const nextPage = () => {
+        setPage(page + 1);
+    }
     useEffect(()=>{
         if(query && type){
             let cancel=true;
+            console.log(page);
             setTimeout(()=>{
                 if(cancel){
+                    console.log(page);
                     getData();
                 }
             },700)
@@ -23,17 +32,22 @@ const Search = ()=>{
                 cancel=false;
             }
         }
+    },[type,query,page])
+
+    useEffect(()=>{
+        setPage(1);
     },[type,query])
+    console.log(page);
 
     async function getData(){
         setRes(null);
+        console.log(query,page);
         await getSearch(type,query,page)
         .then(res=>{
             setRes(res.results);
         })
 
     }
-    console.log(result);
 
     const handleQuery = (e)=>{
         setQuery(e.target.value);
@@ -64,6 +78,19 @@ const Search = ()=>{
             ))
         }
         </div>
+
+        { result ?
+        <div className="navigation">
+
+                {
+                    page == 1 ?
+                    (<Button variant="contained" color="error">Previous</Button>) :
+                    (<Button variant="contained" onClick={prevPage}>Previous</Button>)
+                }
+                    <div style={{color:"white"}}>{page}</div>
+                    <Button variant="contained" onClick={nextPage}>Next</Button>
+        </div>:<></>
+        }
         </>
     )
 }
