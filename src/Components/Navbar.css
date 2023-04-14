@@ -18,7 +18,7 @@ body {
 
 
 .navContainer{
-  background-color: #000000a1;
+  background-color: #000000;
   z-index: 2;
   position: fixed;
   /* height: 8vh; */
@@ -28,9 +28,6 @@ body {
   transition: all 0.7s ease;
 }
 
-.navContainer:hover{
-  background-color: #000000ee;
-}
 
 .navbar{
   
