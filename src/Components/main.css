@@ -4,12 +4,13 @@
 
 .head-pic img{
     object-fit:cover;
+    object-position: top;
     width: 100%;
     height: 100%;
 }
 
 .head-pic{
-    height: 75vh;
+    height: 80vh;
     overflow: hidden;
 }
 

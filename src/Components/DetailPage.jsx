@@ -13,7 +13,8 @@ const DetailPage=(props)=>{
     const [detail,setDetail]=useState([]);
 
     const api={
-        image:"https://image.tmdb.org/t/p/original/"
+        backdrop:"https://image.tmdb.org/t/p/original/",
+        poster:"https://image.tmdb.org/t/p/w500/"
     }
 
     console.log(props.type);
@@ -47,7 +48,7 @@ const DetailPage=(props)=>{
         <div>
         <div className='head-pic'>
         <img 
-        src={`${api.image}${detail.backdrop_path}`} alt="Loading" >   
+        src={`${api.backdrop}${detail.backdrop_path}`} alt="Loading" >   
         </img>
         <div className="overlay-data">
 
@@ -87,7 +88,7 @@ const DetailPage=(props)=>{
         <div className='mid'>
         <div className='mid-left'>
         <img 
-        src={`${api.image}${detail.poster_path}`} alt="">
+        src={`${api.poster}${detail.poster_path}`} alt="">
         </img>
         <div className="tagline">{detail.tagline}</div>
         </div>

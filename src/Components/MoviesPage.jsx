@@ -19,13 +19,28 @@ const MoviesPage = (props) => {
     }
 
     useEffect(() => {
-        setPage(1);
-        getMovies();
-    }, [props.page])
 
-    useEffect(() => {
-        getMovies()
-    }, [page])
+        setdata(null);
+        setLoad(true);
+        let cancel=true;
+        console.log(page);
+        setTimeout(()=>{
+            if(cancel){
+                console.log(page);
+                getMovies();
+            }
+        },500)
+        return ()=>{
+            cancel=false;
+        }
+    }, [props.page,page])
+
+    useEffect(()=>{
+        setPage(1);
+    },[props.page])
+
+
+
 
     const prevPage = () => {
         setPage(page - 1);
@@ -36,8 +51,6 @@ const MoviesPage = (props) => {
 
 
     async function getMovies() {
-        setdata(null);
-        setLoad(true);
         if (props.type === "all") {
             await getTrending(props.type, "day", page)
                 .then((result) => {
@@ -65,9 +78,6 @@ const MoviesPage = (props) => {
         }
         setLoad(false)
     }
-
-    console.log(data);
-    console.log(page);
     let media = props.type;
     let message = ""
 
