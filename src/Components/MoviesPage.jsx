@@ -8,7 +8,6 @@ import { Button } from "@mui/material";
 const MoviesPage = (props) => {
 
     const [data, setdata] = useState(null);
-    const initial = 1;
     const [page, setPage] = useState(1);
     const [isLoading, setLoad] = useState(true);
     let isError = false;
@@ -142,7 +141,7 @@ const MoviesPage = (props) => {
                         )}
                 <div className="navigation">
                     {
-                        page == 1 ?
+                        page === 1 ?
                             (<Button variant="contained" color="error">Previous</Button>) :
                             (<Button variant="contained" onClick={prevPage}>Previous</Button>)
                     }
