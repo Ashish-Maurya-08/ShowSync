@@ -21,10 +21,8 @@ const Search = ()=>{
     useEffect(()=>{
         if(query && type){
             let cancel=true;
-            console.log(page);
             setTimeout(()=>{
                 if(cancel){
-                    console.log(page);
                     getData();
                 }
             },700)
@@ -35,16 +33,22 @@ const Search = ()=>{
     },[type,query,page])
 
     useEffect(()=>{
+        if(query && type){
+            getData();
+        }
+    },[type,page])
+
+    useEffect(()=>{
         setPage(1);
     },[type,query])
-    console.log(page);
 
     async function getData(){
         setRes(null);
-        console.log(query,page);
         await getSearch(type,query,page)
         .then(res=>{
-            setRes(res.results);
+            if(res.results.length > 0){
+                setRes(res.results);
+            }
         })
 
     }
@@ -83,7 +87,7 @@ const Search = ()=>{
         <div className="navigation">
 
                 {
-                    page == 1 ?
+                    page === 1 ?
                     (<Button variant="contained" color="error">Previous</Button>) :
                     (<Button variant="contained" onClick={prevPage}>Previous</Button>)
                 }

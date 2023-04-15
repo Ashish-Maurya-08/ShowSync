@@ -4,6 +4,7 @@ import './main.css'
 import {getDetail} from "./api/functions"
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import HeartBrokenIcon from '@mui/icons-material/HeartBroken';
+import notFound from "../notFound.png";
 
 
 const DetailPage=(props)=>{
@@ -88,7 +89,7 @@ const DetailPage=(props)=>{
         <div className='mid'>
         <div className='mid-left'>
         <img 
-        src={`${api.poster}${detail.poster_path}`} alt="">
+        src={detail.poster_path?(`${api.poster}${detail.poster_path}`):(notFound)} alt="">
         </img>
         <div className="tagline">{detail.tagline}</div>
         </div>

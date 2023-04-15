@@ -44,4 +44,4 @@ async function getSearch(type,query,page=1){
 }
 
 
-module.exports={getDetail,getImages,getPopular,getSearch,getTrending,getTop,getUpcoming}
+export{getDetail,getImages,getPopular,getSearch,getTrending,getTop,getUpcoming}

@@ -1,6 +1,7 @@
 
 import "./Container.css";
 import { Link } from "react-router-dom";
+import notFound from "../notFound.png"
 
 
 const MoviesContainer = (props) => {
@@ -16,7 +17,7 @@ const MoviesContainer = (props) => {
       title:title,
       image:`https://image.tmdb.org/t/p/w500${path}`
   }
-
+  
   let type=props.type;
   if(props.type==="all"){
     type=props.movie.media_type;
@@ -24,7 +25,7 @@ const MoviesContainer = (props) => {
   return (
     <div className="movies-container">
     <Link to={`/${type}/${props.movie.id}`}>
-      <img  src={movie.image} alt={movie.title} />
+      <img loading="lazy"  src={path?(movie.image):(notFound)} alt={movie.title} />
     </Link>
     <Link to={`/${type}/${props.movie.id}`}>
       <div className="text-overlay">
