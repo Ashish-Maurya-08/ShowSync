@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useReducer, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import MoviesContainer from "./MoviesContainer";
 import './Container.css';
 import { getTrending, getTop, getUpcoming } from "./api/functions";

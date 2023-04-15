@@ -5,6 +5,7 @@ import MoviesPage from './Components/MoviesPage';
 import DetailPage from './Components/DetailPage';
 import Search from "./Components/Search";
 
+
 function App() {
 
   return (
