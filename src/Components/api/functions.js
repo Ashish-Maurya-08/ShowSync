@@ -30,7 +30,7 @@ async function getTop(type,page=1){
 }
 
 async function getUpcoming(page){
-    const res=await axios.get(`${api.baseURL}/movie/upcoming?page=${page}&api_key=${api.key}&region=IN`)
+    const res=await axios.get(`${api.baseURL}/movie/upcoming?page=${page}&api_key=${api.key}`)
     return res.data;
 }
 async function getImages(type,id){
