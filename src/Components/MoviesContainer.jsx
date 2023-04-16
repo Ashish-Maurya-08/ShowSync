@@ -25,7 +25,7 @@ const MoviesContainer = (props) => {
   return (
     <div className="movies-container">
     <Link to={`/${type}/${props.movie.id}`}>
-      <img loading="lazy"  src={path?(movie.image):(notFound)} alt={movie.title} />
+      <img loading="lazy" src={path || props.page==="main"?(movie.image):(notFound)} alt={movie.title} />
     </Link>
     <Link to={`/${type}/${props.movie.id}`}>
       <div className="text-overlay">
