@@ -18,10 +18,10 @@ body {
 
 
 .navContainer{
-  background-color: #000000;
+  backdrop-filter: blur(10px);
   z-index: 2;
   position: fixed;
-  /* height: 8vh; */
+  height: 8vh;
   display: flex;
   justify-content: center;
   width: 100%;
