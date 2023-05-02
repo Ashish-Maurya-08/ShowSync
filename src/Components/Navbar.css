@@ -22,7 +22,7 @@ body {
   z-index: 2;
   position: fixed;
   top: 0;
-  min-height: 8vh;
+  height: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -42,6 +42,7 @@ body {
 }
 
 .dropMenu{
+
   padding: 1rem;
   display: none;
   flex-direction: column;
