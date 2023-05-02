@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
 import MenuIcon from '@mui/icons-material/Menu';
@@ -8,6 +8,21 @@ import SearchIcon from '@mui/icons-material/Search';
 
 
 const NavBar = () => {
+
+  const [menu,setmenu] = useState("hide");
+
+  function toggleMenu() {
+    if(menu==="hide"){
+      setmenu("show");
+    }
+    else{
+      setmenu("hideAni");
+      setTimeout(()=>{
+        setmenu("hide");
+      },400)
+    }
+  }
+  console.log(menu);
 
   return (
     <div className="navContainer">
@@ -28,16 +43,30 @@ const NavBar = () => {
           <Link to="/upcoming" className="hover">Upcoming</Link>
         </div>
       </div>
+
+
+
       <div className="navbar showMobile">
-      <div>
-        <Link to="/search"><SearchIcon/></Link>
-      </div>
-      <div>
+        <div>
+          <Link to="/search"><SearchIcon /></Link>
+        </div>
+        <div>
           <Link to="/" className="showsync">ShowSync</Link>
+        </div>
+        <div style={{ color: "white " }} onClick={toggleMenu}>
+          <MenuIcon color="white"/>
+        </div>
       </div>
-      <div style={{color:"white "}}>
-        <MenuIcon color="white"/>
-      </div>
+      <div className={`dropMenu ${menu}`}>
+        <div>
+          <Link to="/movies" className="movies hover" onClick={toggleMenu}>Movies</Link>
+        </div>
+        <div>
+          <Link to="/tvshows" className="hover" onClick={toggleMenu}>Shows</Link>
+        </div>
+        <div>
+          <Link to="/upcoming" className="hover" onClick={toggleMenu}>Upcoming</Link>
+        </div>
       </div>
     </div>
   );
