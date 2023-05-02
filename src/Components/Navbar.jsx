@@ -59,13 +59,13 @@ const NavBar = () => {
       </div>
       <div className={`dropMenu ${menu}`}>
         <div>
-          <Link to="/movies" className="movies hover" onClick={toggleMenu}>Movies</Link>
+          <Link to="/movies" className="movies" onClick={toggleMenu}>Movies</Link>
         </div>
         <div>
-          <Link to="/tvshows" className="hover" onClick={toggleMenu}>Shows</Link>
+          <Link to="/tvshows" onClick={toggleMenu}>Shows</Link>
         </div>
         <div>
-          <Link to="/upcoming" className="hover" onClick={toggleMenu}>Upcoming</Link>
+          <Link to="/upcoming" onClick={toggleMenu}>Upcoming</Link>
         </div>
       </div>
     </div>
