@@ -43,12 +43,14 @@ body {
 .dropMenu{
   text-decoration: underline aquamarine 2px;
   text-underline-offset: 3px;
+  letter-spacing: 1px;
   padding: 1rem;
   display: none;
   flex-direction: column;
   gap: 0.7rem;
   font-weight: 500;
-  font-variant: small-caps;
+  /* font-variant: small-caps; */
+  text-transform:lowercase;
 }
 
 .hide{
