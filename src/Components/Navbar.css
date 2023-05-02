@@ -21,7 +21,7 @@ body {
   backdrop-filter: blur(10px);
   z-index: 2;
   position: fixed;
-  height: 8vh;
+  height: 4rem;
   display: flex;
   justify-content: center;
   width: 100%;
@@ -33,7 +33,7 @@ body {
   
   border-radius:0 0 20px 20px;
   height: 100%;
-  width: 50%;
+  width: 45%;
   display: flex;
   justify-content: space-evenly;
   gap: 2%;
@@ -43,6 +43,10 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.showMobile{
+  display: none;
 }
 
 a{
@@ -66,4 +70,44 @@ a{
 
 .hidden{
   display: none;
+}
+
+@media screen and (max-width: 1100px) {
+  .navbar{
+    width: 55%;
+  }
+  
+}
+
+@media screen and (max-width: 900px) {
+  .navbar{
+    width: 65%;
+  }
+  
+}
+
+@media screen and (max-width: 730px) {
+  .navbar{
+    width: 100%;
+  }
+  
+}
+
+@media screen and (max-width: 600px) {
+  .navbar{
+    width: 100%;
+  }
+  
+}
+@media screen and (max-width: 500px) {
+  .navbar{
+    justify-content: space-around;
+  }
+  .hideMobile{
+    display: none;
+  }
+  .showMobile{
+    display: flex;
+  }
+  
 }

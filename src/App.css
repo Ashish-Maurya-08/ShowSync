@@ -38,17 +38,20 @@
 }
 
 .search_page{
-  padding-top: 10vh;
+  color: white;
+  padding-top: 15vh;
+  padding-bottom: 2rem;
   width: 100%;
   height:auto;
   display: flex;
   flex-direction: column;
   /* justify-content: center; */
-  /* align-items: center; */
+  align-items: center;
 }
 
 .search{
   padding-bottom: 3vh;
+  padding: 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -56,7 +59,7 @@
 }
 
 .search input{
-  /* height: 50px; */
+  width: 30vw;
   font-size: 2rem;
   font-family: Montserrat;
   color: white;
@@ -64,6 +67,16 @@
   border: none;
   outline: none;
   border-bottom: 2px solid white;
+}
+
+.showMid{
+  display: none;
+}
+.showSmall{
+  display: none;
+}
+.showLarge{
+  display: block;
 }
 
 @keyframes App-logo-spin {
@@ -85,4 +98,43 @@
 	100% {
 		background-position: 0% 50%;
 	}
+}
+
+@media screen and (max-width: 900px) {
+  .showMid{
+    display: block;
+  }
+  .showLarge{
+    display: none;
+  }
+  .search{
+    width: 70%;
+  }
+  .search input{
+    width: 60%;
+    font-size:23px;
+  }
+}
+
+
+@media screen and (max-width:500px){
+
+  .showSmall{
+    display: block;
+  }
+  .showMid{
+    display: none;
+  }
+
+  .hideMobile{
+    display: none;
+  }
+  .search{
+    width: 100%;
+    padding: 0;
+  }
+  .search input{
+    width: 70%;
+    font-size: 20px;
+  }
 }

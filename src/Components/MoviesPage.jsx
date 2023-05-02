@@ -11,32 +11,26 @@ const MoviesPage = (props) => {
     const [page, setPage] = useState(1);
     const [isLoading, setLoad] = useState(true);
     let isError = false;
-
-    const main_style={}
-    if(props.page==="main"){
-        main_style.gridTemplateColumns="1fr 1fr 1fr 1fr"
-    }
-
     useEffect(() => {
 
         setdata(null);
         setLoad(true);
-        let cancel=true;
+        let cancel = true;
         console.log(page);
-        setTimeout(()=>{
-            if(cancel){
+        setTimeout(() => {
+            if (cancel) {
                 console.log(page);
                 getMovies();
             }
-        },500)
-        return ()=>{
-            cancel=false;
+        }, 500)
+        return () => {
+            cancel = false;
         }
-    }, [props.page,page])
+    }, [props.page, page])
 
-    useEffect(()=>{
+    useEffect(() => {
         setPage(1);
-    },[props.page])
+    }, [props.page])
 
 
 
@@ -83,7 +77,7 @@ const MoviesPage = (props) => {
     if (props.type === "all") {
         media = ""
     }
-    else if (props.type === "movie" && props.page==="movies") {
+    else if (props.type === "movie" && props.page === "movies") {
         media = " Movies"
     }
     else if (props.type === "tv") {
@@ -109,7 +103,7 @@ const MoviesPage = (props) => {
     return (
         <Fragment>
             <div className="full_page">
-                <h1 style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "5px" }}>
+                <h1 className="headline">
                     {
                         isLoading || isError ?
                             (<>
@@ -130,7 +124,18 @@ const MoviesPage = (props) => {
                     !data ?
                         (<></>) :
                         (
-                            <div className="container" style={main_style}>
+                            props.page==="main"?(
+                            <div className="main-page-container">
+                            {
+                                    !isLoading && data.map((item) =>
+                                    (
+                                        <MoviesContainer movie={item} type={props.type} page={props.page} />
+                                    )
+                                    )}
+                            </div>
+
+                            ):(
+                            <div className="container" >
                                 {
                                     !isLoading && data.map((item) =>
                                     (
@@ -138,7 +143,9 @@ const MoviesPage = (props) => {
                                     )
                                     )}
                             </div>
-                        )}
+                            )
+                        )
+                    }
                 <div className="navigation">
                     {
                         page === 1 ?

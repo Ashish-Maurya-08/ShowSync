@@ -70,9 +70,17 @@ const Search = ()=>{
         <>
         <div className="search_page">
         <form className="search">
-        <SearchIcon style={{color:"white",fontSize:"2rem"}}/>
+        <div className="showLarge">
+        <SearchIcon fontSize="large"/>
+        </div>
+        <div className="showMid">
+        <SearchIcon fontSize="medium"/>
+        </div>
+        <div className="showSmall">
+        <SearchIcon fontSize="small"/>
+        </div>
         <input className="searchInput" placeholder="Search" onChange={(e)=>handleQuery(e)}/>
-        <Select defaultValue={options[0]} options={options} onChange={(e)=>handleType(e)}/>
+        <Select className="hideMobile" defaultValue={options[0]} options={options} onChange={(e)=>handleType(e)}/>
         </form>
         </div>
         <div className="container">
@@ -83,9 +91,8 @@ const Search = ()=>{
         }
         </div>
 
-        { result ?
+        { result && query ?
         <div className="navigation">
-
                 {
                     page === 1 ?
                     (<Button variant="contained" color="error">Previous</Button>) :
