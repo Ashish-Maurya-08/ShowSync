@@ -80,7 +80,6 @@ const Search = ()=>{
         <SearchIcon fontSize="small"/>
         </div>
         <input className="searchInput" placeholder="Search" onChange={(e)=>handleQuery(e)}/>
-        <Select className="hideMobile" defaultValue={options[0]} options={options} onChange={(e)=>handleType(e)}/>
         </form>
         </div>
         <div className="container">

@@ -177,22 +177,27 @@ div li{
     }
 
     .overlay-data{
+        font-size: 10px;
         width: 100%;
         padding: 0;
         justify-content: center;
         text-align: center;
     }
     .overlay-data h1{
+        font-size: 20px;
         padding: 0;
         text-align: center;
     }
     .mid-top-ul{
+        font-size: 10px;
+        height: auto;
         width: 100%;
         padding: 0;
     }
     .display{
         flex-direction: column;
-        width: 100%;
+        width: 90%;
+        padding: 1rem;
     }
     .data-overview{
         width: 100%;
