@@ -140,7 +140,6 @@ div li{
 .overlay-data{
     position:sticky;
     bottom:0;
-    
 }
 
 .overlay-data h1{
@@ -166,4 +165,37 @@ div li{
     width:250px;
     color:white;
     font-style: oblique;
+}
+
+@media screen and (max-width:500px) {
+    .head-pic{
+        padding-top: 8vh;
+        height: 50vh;
+    }
+    .mid-left{
+        display: none;
+    }
+
+    .overlay-data{
+        width: 100%;
+        padding: 0;
+        justify-content: center;
+        text-align: center;
+    }
+    .overlay-data h1{
+        padding: 0;
+        text-align: center;
+    }
+    .mid-top-ul{
+        width: 100%;
+        padding: 0;
+    }
+    .display{
+        flex-direction: column;
+        width: 100%;
+    }
+    .data-overview{
+        width: 100%;
+        padding :0;
+    }
 }

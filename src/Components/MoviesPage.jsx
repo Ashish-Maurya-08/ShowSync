@@ -11,8 +11,9 @@ const MoviesPage = (props) => {
     const [page, setPage] = useState(1);
     const [isLoading, setLoad] = useState(true);
     let isError = false;
-    useEffect(() => {
 
+
+    useEffect(() => {
         setdata(null);
         setLoad(true);
         let cancel = true;
@@ -26,7 +27,9 @@ const MoviesPage = (props) => {
         return () => {
             cancel = false;
         }
-    }, [props.page, page])
+    }, [props.page,page])
+
+
 
     useEffect(() => {
         setPage(1);
@@ -71,9 +74,10 @@ const MoviesPage = (props) => {
         }
         setLoad(false)
     }
+
+
     let media = props.type;
     let message = ""
-
     if (props.type === "all") {
         media = ""
     }
@@ -106,19 +110,11 @@ const MoviesPage = (props) => {
                 <h1 className="headline">
                     {
                         isLoading || isError ?
-                            (<>
-                                {message}
-                            </>) :
+                            (<>{message}</>) :
                             (props.page === "upcoming") ?
                                 (<div>Upcoming Movies</div>) :
-                                (
-                                    <>
-                                        {Tag}
-                                        <div style={{ color: "red" }}> {media} </div>
-                                    </>
-                                )
+                                (<>{Tag}<div style={{ color: "red" }}> {media} </div></>)
                     }
-
                 </h1>
                 {
                     !data ?
