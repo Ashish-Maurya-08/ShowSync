@@ -13,6 +13,10 @@ const MoviesContainer = (props) => {
   if(props.page==="main"){
     path=props.movie.backdrop_path;
   }
+  if(props.type==="person"){
+    path=props.movie.profile_path;
+  }
+  console.log(props.movie);
   const movie={
       title:title,
       image:`https://image.tmdb.org/t/p/w500${path}`

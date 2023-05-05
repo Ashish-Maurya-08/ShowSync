@@ -85,7 +85,7 @@ const Search = ()=>{
         <div className="container">
         {
             result && result.map((result)=>(
-                <MoviesContainer movie={result} type={type}/>
+                <MoviesContainer movie={result} type={result.media_type}/>
             ))
         }
         </div>
