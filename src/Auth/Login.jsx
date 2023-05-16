@@ -42,8 +42,8 @@ const Login=(props)=>{
       }
       api.post('/auth/login',d).then((res)=>{
         if(res.status===200){
-          localStorage.setItem("token", JSON.stringify(res.data));
-          props.setToken(res.data);
+          localStorage.setItem("data", JSON.stringify(res.data));
+          props.setToken(res.data.token);
           navigate("/");
         }
       })

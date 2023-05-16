@@ -244,10 +244,13 @@ div li{
         justify-content: center;
     }
 
+    .tagline{
+        font-size: 1.1rem;
+    }
+
 }
 
 @media screen and (max-width:600px) {
-
 
     .head-pic{
         height: 60vh;

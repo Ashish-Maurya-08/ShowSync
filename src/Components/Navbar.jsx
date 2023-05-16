@@ -1,15 +1,19 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
+import userContext from "../context/userData";
 
 
 
 
-const NavBar = () => {
+const NavBar = (props) => {
 
   const [menu,setmenu] = useState("hide");
+
+  const data=useContext(userContext);
+  console.log(data);
 
   function toggleMenu() {
     if(menu==="hide"){
@@ -26,7 +30,11 @@ const NavBar = () => {
 
   return (
     <div className="navContainer">
-      <div className="navbar hideMobile">
+      <div className="navbar hideMobile" >
+      <div style={{visibility:"hidden"}}>
+      {data.user}
+      </div>
+      <div className="mainNav">
         <div>
           <Link to="/search" className="hover">Search</Link>
         </div>
@@ -42,6 +50,13 @@ const NavBar = () => {
         <div>
           <Link to="/upcoming" className="hover">Upcoming</Link>
         </div>
+      </div>
+      <div>
+          {data.user?
+          <Link to="/profile" className="hover">{data.user}</Link>
+          :
+          <Link to="/login" className="hover">Login</Link>}
+      </div>
       </div>
 
 
@@ -66,6 +81,12 @@ const NavBar = () => {
         </div>
         <div>
           <Link to="/upcoming" onClick={toggleMenu}>Upcoming</Link>
+        </div>
+        <div>
+        {data.user?
+          <Link to="/profile" className="hover">{data.user}</Link>
+          :
+          <Link to="/login" className="hover">Login</Link>}
         </div>
       </div>
     </div>
