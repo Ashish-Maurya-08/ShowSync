@@ -13,7 +13,6 @@ const NavBar = (props) => {
   const [menu,setmenu] = useState("hide");
 
   const data=useContext(userContext);
-  console.log(data);
 
   function toggleMenu() {
     if(menu==="hide"){
@@ -26,7 +25,6 @@ const NavBar = (props) => {
       },400)
     }
   }
-  console.log(menu);
 
   return (
     <div className="navContainer">

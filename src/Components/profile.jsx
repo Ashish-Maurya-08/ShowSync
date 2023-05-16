@@ -1,9 +1,12 @@
 import userContext from "../context/userData"
 import { useContext } from "react";
+import { Button } from "@mui/material";
 import axios from "axios";
-const Profile = () => {
+import { useNavigate } from "react-router-dom";
+const Profile = (props) => {
 
     const data = useContext(userContext);
+    const navigate = useNavigate();
     console.log(data.token);
 
     const api = axios.create({
@@ -30,12 +33,19 @@ const Profile = () => {
         })
     }
 
-      
+    const logout = () => {
+        console.log("logout");
+        localStorage.removeItem("data");
+        props.setToken(null);
+        props.setUser(null);
+        navigate('/');
+    }
 
 
     return (
         <div>
             <h1>Profile</h1>
+            <Button variant='contained' onClick={logout}>Logout</Button>
         </div>
     );
 }

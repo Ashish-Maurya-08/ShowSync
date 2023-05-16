@@ -8,7 +8,7 @@ import Login from './Auth/Login';
 import SignUp from './Auth/Signup';
 import { Button } from '@mui/material';
 import userContext from './context/userData';
-import Proflie from './Components/profile';
+import Profile from './Components/profile';
 
 
 function App() {
@@ -26,7 +26,8 @@ function App() {
       }
     }
     getToken();
-  }, [token])
+  }, [])
+
 
   
 
@@ -45,13 +46,9 @@ function App() {
           <Route path='/tv/:id' element={<DetailPage type="tv" />} />
           <Route path='/login' element={<Login setToken={setToken} token={token}/>} />
           <Route path='/signup' element={<SignUp token={token} />} />
-          <Route path='/profile' element={<Proflie/>}/>
+          <Route path='/profile' element={<Profile setToken={setToken} setUser={setUser}/>}/>
         </Routes>
       </BrowserRouter>
-      {token ? 
-      <Button variant='contained' onClick={() => { localStorage.removeItem("data"); setToken(null);setUser(null) }}>Logout</Button>
-      : null
-      }
     </div>
     </userContext.Provider>
   );
