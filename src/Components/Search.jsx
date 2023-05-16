@@ -4,7 +4,7 @@ import Select from 'react-select'
 import { getSearch } from "./api/functions";
 import MoviesContainer from "./MoviesContainer";
 import { Button } from "@mui/material";
-
+import Layout from "../Layout/Layout";
 const Search = ()=>{
 
     const [query,setQuery]=useState();
@@ -67,7 +67,7 @@ const Search = ()=>{
       ];
 
     return(
-        <>
+        <Layout>
         <div className="search_page">
         <form className="search">
         <div className="showLarge">
@@ -101,7 +101,7 @@ const Search = ()=>{
                     <Button variant="contained" onClick={nextPage}>Next</Button>
         </div>:<></>
         }
-        </>
+        </Layout>
     )
 }
 

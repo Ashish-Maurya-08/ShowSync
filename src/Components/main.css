@@ -11,6 +11,7 @@
 
 .head-pic{
     height: 80vh;
+    position: relative;
     overflow: hidden;
 }
 
@@ -25,11 +26,22 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    top: -22vh;
+    top: -27vh;
     /* margin-left: 10vw; */
     width: 50%;
 }
 .mid-left img{
+    width: 250px;
+    border: white solid 5px;
+}
+
+.posterOp{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+}
+
+.posterOp img{
     width: 250px;
     border: white solid 5px;
 }
@@ -55,6 +67,7 @@
 
 .mid-top-ul li span{
     /* font-size: 1.1rem; */
+    width: 100%;
     font-family: Montserrat;
 }
 div li{
@@ -74,6 +87,10 @@ div li{
     line-height: 29px;
     letter-spacing: 1.2px;
     border-radius: 20px;
+}
+
+.mobile{
+    display: none;
 }
 
 .mid-bot-ul li span{
@@ -138,12 +155,14 @@ div li{
 }
 
 .overlay-data{
-    position:sticky;
+    position:absolute;
+    width: 100%;
     bottom:0;
 }
 
 .overlay-data h1{
     color: white;
+    text-shadow: -4px 3px 10px #000000;
     text-align:start ;
     padding-left: 35%;
 }
@@ -167,13 +186,75 @@ div li{
     font-style: oblique;
 }
 
-@media screen and (max-width:500px) {
+@media screen and (max-width:1100px) {
+    .display{
+        width: auto;
+        justify-content: center;
+        padding:0 3rem ;
+    }
+    .mid-left img{
+        width: 220px;
+    }
+}
+
+@media screen and (max-width:900px) {
     .head-pic{
-        padding-top: 8vh;
-        height: 50vh;
+        height: 60vh;
     }
     .mid-left{
         display: none;
+    }
+
+    .posterOp{
+        display: flex;
+    }
+
+    .posterOp img{
+        width: 180px;
+    }
+
+    .overlay-data h1{
+        text-align: center;
+        padding:0;
+    }
+
+    .mid-top-ul{
+        padding: 0;
+        /* padding:0 5vw; */
+        width: auto;
+        padding:0 5rem;
+        justify-content: space-evenly;
+    }
+    .display{
+        flex-direction: column-reverse;
+    }
+    .options{
+        display: flex;
+        justify-content: space-evenly;
+        padding-top: 2rem;
+        width: 100%;
+    }
+    .options button{
+        width: 15rem;
+    }
+    .operation{
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        justify-content: center;
+    }
+
+}
+
+@media screen and (max-width:600px) {
+
+
+    .head-pic{
+        height: 60vh;
+    }
+
+    .mid-bot-ul li span{
+        font-size: 15px;
     }
 
     .overlay-data{
@@ -189,18 +270,48 @@ div li{
         text-align: center;
     }
     .mid-top-ul{
-        font-size: 10px;
-        height: auto;
+        gap: 0;
+        font-size: 3vw;
         width: 100%;
         padding: 0;
+    }
+    .mid-top-ul li span{
+        margin: 0;
+        font-size: 14px;
+    }
+    .posterOp{
+        display: none;
     }
     .display{
         flex-direction: column;
         width: 90%;
         padding: 1rem;
     }
-    .data-overview{
+    .options{
         width: 100%;
-        padding :0;
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        gap: 2rem;
+        align-items: center;
+        justify-content: center;
     }
+}
+
+@media screen and (max-width:420px) {
+    .desktop{
+        display: none;
+    }
+    .mobile {
+        display: block;
+    }
+    .head-pic{
+        height: 100%;
+       
+    }
+    .head-pic img{
+        object-fit:cover;
+        width: 100%;
+    }
+
 }

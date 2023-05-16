@@ -1,0 +1,56 @@
+.main{
+  /* background-color: darkgray; */
+  background-image: url('./back.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.link a{
+  text-decoration: none;
+  color: black;
+  font-weight: 700;
+}
+
+.link a:hover{
+  color: rgb(18, 73, 170);
+  text-decoration: underline;
+}
+
+
+.back{
+  height: 100vh;
+
+}
+
+.form{
+  background-color:aliceblue;;
+  padding: 30px;
+  border-radius: 10px;
+
+}
+
+.form form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 15px;
+  width: 20rem;
+}
+
+.button{
+  width: 30%;
+}
+
+@media screen and (max-width: 800px) {
+
+  .form form{
+    width: 15rem;
+    transition: all 400ms ease-in-out;
+  }
+  
+}

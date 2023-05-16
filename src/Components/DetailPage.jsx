@@ -5,11 +5,13 @@ import { getDetail } from "./api/functions"
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import HeartBrokenIcon from '@mui/icons-material/HeartBroken';
 import notFound from "../notFound.png";
+import Layout from "../Layout/Layout";
 
 
 const DetailPage = (props) => {
     const { id } = useParams()
     console.log(id);
+
 
     const [detail, setDetail] = useState([]);
 
@@ -46,10 +48,13 @@ const DetailPage = (props) => {
     }
 
     return (
-        <div>
+        <Layout>
             <div className='head-pic'>
                 <img
-                    src={`${api.backdrop}${detail.backdrop_path}`} alt="Loading" >
+                   className="desktop" src={`${api.backdrop}${detail.backdrop_path}`} alt="Loading" >
+                </img>
+                <img
+                   className="mobile" src={`${api.poster}${detail.poster_path}`} alt="Loading" >
                 </img>
                 <div className="overlay-data">
 
@@ -147,15 +152,23 @@ const DetailPage = (props) => {
                             </div>
                         </div>
                         <div className="options">
+                            <div className="posterOp">
+                                <img
+                                    src={detail.poster_path ? (`${api.poster}${detail.poster_path}`) : (notFound)} alt="">
+                                </img>
+                                <div className="tagline">{detail.tagline}</div>
+                            </div>
+                            <div className="operation">
                             <button id='hist'>ADD TO FAVOURITES</button>
                             <button id='coll'>ADD TO MY LIST</button>
                             <button id='watc'>ADD TO WATCHLIST</button>
                             <button id='comm'>ADD COMMENT</button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </Layout>
     )
 }
 

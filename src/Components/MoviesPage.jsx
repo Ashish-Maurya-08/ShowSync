@@ -3,6 +3,7 @@ import MoviesContainer from "./MoviesContainer";
 import './Container.css';
 import { getTrending, getTop, getUpcoming } from "./api/functions";
 import { Button } from "@mui/material";
+import Layout from "../Layout/Layout";
 
 
 const MoviesPage = (props) => {
@@ -105,7 +106,7 @@ const MoviesPage = (props) => {
         Tag = "Popular "
     }
     return (
-        <Fragment>
+        <Layout>
             <div className="full_page">
                 <h1 className="headline">
                     {
@@ -153,7 +154,7 @@ const MoviesPage = (props) => {
                 </div>
 
             </div>
-        </Fragment>
+        </Layout>
     );
 };
 

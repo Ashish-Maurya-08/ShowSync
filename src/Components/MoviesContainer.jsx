@@ -16,7 +16,7 @@ const MoviesContainer = (props) => {
   if(props.type==="person"){
     path=props.movie.profile_path;
   }
-  console.log(props.movie);
+  // console.log(props.movie);
   const movie={
       title:title,
       image:`https://image.tmdb.org/t/p/w500${path}`
