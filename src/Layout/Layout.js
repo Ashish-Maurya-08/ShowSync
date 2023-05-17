@@ -1,4 +1,4 @@
-import NavBar from "../Components/Navbar";
+import NavBar from "./Navbar";
 const Layout = (props) => {
     return (
         <div>

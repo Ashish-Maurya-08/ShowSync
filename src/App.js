@@ -15,24 +15,27 @@ function App() {
 
   const [token, setToken] = useState(null);
   const [user, setUser] = useState(null);
+  const [userId, setUserId] = useState(null);
 
   useEffect( () => {
-    const getToken = async () => {
-      const tokenRes = await localStorage.getItem("data");
+    const getToken = () => {
+      const tokenRes =  localStorage.getItem("data");
       if (tokenRes) {
         const parsedToken = JSON.parse(tokenRes);
         setToken(parsedToken.token);
         setUser(parsedToken.name);
+        setUserId(parsedToken.userId);
       }
     }
     getToken();
-  }, [])
+  }, [token])
 
+  
 
   
 
   return (
-    <userContext.Provider value={{user:user,token:token}}>
+    <userContext.Provider value={{user:user,token:token,userId:userId}}>
     <div className="App">
       <BrowserRouter>
         {/* <Navbar /> */}

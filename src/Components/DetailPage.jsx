@@ -6,7 +6,7 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import HeartBrokenIcon from '@mui/icons-material/HeartBroken';
 import notFound from "../notFound.png";
 import Layout from "../Layout/Layout";
-
+import {addtoList} from "../Components/api/server"
 
 const DetailPage = (props) => {
     const { id } = useParams()
@@ -20,6 +20,7 @@ const DetailPage = (props) => {
         poster: "https://image.tmdb.org/t/p/w500/"
     }
 
+    
     console.log(props.type);
 
     async function getDetails() {
@@ -46,6 +47,18 @@ const DetailPage = (props) => {
     if (detail.runtime) {
         runtime = detail.runtime;
     }
+
+    const add = async (type,id) => {
+        await addtoList(type, id).then((res)=>{
+            console.log(res);
+        })
+    }
+
+    // const [exists, setExists] = useState(false)
+
+    // const checkDb = async (type,id) => {
+    //     const check=await checkList(type, id)
+    // }
 
     return (
         <Layout>
@@ -109,7 +122,7 @@ const DetailPage = (props) => {
                                             </li>
                                             <li>
                                                 <span className="bold">Runtime:</span>
-                                                {detail.episode_run_time != 0 ?
+                                                {detail.episode_run_time !== 0 ?
                                                     (<span className="dull">{detail.episode_run_time} min/ep</span>) :
                                                     detail.last_episode_to_air ?
                                                         (<span className="dull">{detail.last_episode_to_air.runtime} min/ep</span>) : (<></>)
@@ -159,10 +172,9 @@ const DetailPage = (props) => {
                                 <div className="tagline">{detail.tagline}</div>
                             </div>
                             <div className="operation">
-                            <button id='hist'>ADD TO FAVOURITES</button>
-                            <button id='coll'>ADD TO MY LIST</button>
-                            <button id='watc'>ADD TO WATCHLIST</button>
-                            <button id='comm'>ADD COMMENT</button>
+                            <button name="favorites" id='hist' onClick={(e)=>{add(e.target.name,detail.id)}}>ADD TO FAVOURITES</button>
+                            <button  id='coll'>ADD TO MY LIST</button>
+                            <button name="planned" id='watc' onClick={(e)=>{add(e.target.name,detail.id)}} >ADD TO WATCHLIST</button>
                             </div>
                         </div>
                     </div>

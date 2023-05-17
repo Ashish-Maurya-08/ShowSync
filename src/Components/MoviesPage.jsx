@@ -36,8 +36,7 @@ const MoviesPage = (props) => {
         setPage(1);
     }, [props.page])
 
-
-
+    
 
     const prevPage = () => {
         setPage(page - 1);

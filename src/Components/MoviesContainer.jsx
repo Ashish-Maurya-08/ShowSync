@@ -21,6 +21,8 @@ const MoviesContainer = (props) => {
       title:title,
       image:`https://image.tmdb.org/t/p/w500${path}`
   }
+
+
   
   let type=props.type;
   if(props.type==="all"){

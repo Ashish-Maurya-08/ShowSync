@@ -68,7 +68,7 @@ const SignUp=(props)=>{
         <TextField required type="text" label="Email" name="email" onChange={(e)=>{handleChange(e)}}/>
         <TextField required type="password" label="Password" name="password" onChange={(e)=>{handleChange(e)}}/>
         <Button className="button" variant="contained" type="submit" onClick={(e)=>{handleSignup(e)}}>SignUp</Button>
-        <div>Already have account ? <Link to='/login'>Login</Link></div>
+        <div className="link">Already have account ? <Link to='/login'>Login</Link></div>
       </form>
     </div>
     </div>

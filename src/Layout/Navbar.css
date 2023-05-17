@@ -1,0 +1,160 @@
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@600&display=swap");
+body {
+  margin: 0;
+  line-height: normal;
+}
+:root {
+  /* fonts */
+  --font-cairo: Cairo;
+  --font-outfit: Outfit;
+  
+  /* font sizes */
+  --font-size-13xl: 18px;
+  
+  /* Colors */
+  --color-black: #000;
+}
+
+
+.navContainer{
+  backdrop-filter: blur(10px);
+  z-index: 2;
+  position: fixed;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  transition: height 0.7s ease-in-out;
+}
+
+/* .hideMobile{
+  width: 100%;
+} */
+
+.navbar{
+  border-radius:0 0 20px 20px;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 2%;
+}
+
+.mainNav{
+  width: 70%;
+  display: flex;
+  gap: 4%;
+
+}
+
+.dropMenu{
+  text-decoration: underline aquamarine 2px;
+  text-underline-offset: 3px;
+  letter-spacing: 1px;
+  padding: 1rem;
+  display: none;
+  flex-direction: column;
+  gap: 0.7rem;
+  font-weight: 500;
+  /* font-variant: small-caps; */
+  text-transform:lowercase;
+}
+
+.hide{
+  display: none;
+}
+ 
+.hideAni{
+  animation: slideUp 0.5s ease-in-out;
+  display: flex;
+  gap: 0.7rem;
+}
+
+.show{
+  display: flex;
+  animation: slideDown 0.3s ease-in-out ;
+  height:8rem;
+}
+
+         
+@keyframes slideDown {
+  0% { 
+    opacity: 0;
+    height: 0;
+    transform: translateY(-50px)
+  }
+  100% {
+    opacity: 1;
+    height:8rem;
+    transform: translateY(0)
+  }
+}
+@keyframes slideUp {
+  0% { 
+    opacity: 1;
+    height:8rem;
+    transform: translateY(0px);
+  }
+
+  100% {
+    opacity: 0;
+    height: 0;
+    transform: translateY(-50px);
+  }
+}
+
+
+
+.navbar div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.showMobile{
+  display: none;
+}
+
+a{
+  text-decoration: none;
+  color: white;
+  font-family: (var(--font-outfit));
+  font-size: var(--font-size-13xl);
+}
+
+.showsync {
+  font-size: 28px;
+  font-variant: small-caps;
+  font-style: oblique;
+  color: white;
+  font-family: var(--font-cairo);
+}
+
+.hover:hover{
+  color: red;
+}
+
+
+
+@media screen and (min-width: 500px) {
+  .dropMenu{
+    display: none;;
+  }
+  
+}
+@media screen and (max-width: 600px) {
+  .navbar{
+    justify-content: space-around;
+  }
+  .hideMobile{
+    display: none;
+  }
+  .showMobile{
+    display: flex;
+  }
+  
+}
