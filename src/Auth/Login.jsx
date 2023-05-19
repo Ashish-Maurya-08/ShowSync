@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Button,TextField } from "@mui/material"
 import { Link } from "react-router-dom";
@@ -12,11 +12,11 @@ const Login=(props)=>{
   var navigate=useNavigate();
 
   // const [isLoading, setLoad] = useState(false);
-
-
+  useEffect(() => {
   if(props.token){
     navigate('/');
   }
+}, [props.token])
 
   const api = axios.create({
     baseURL: "https://show-sync-backend.vercel.app/"
@@ -61,9 +61,6 @@ const Login=(props)=>{
   }
 
   return(
-    props.loggedIn?(
-      <Navigate to="/"/>
-    ):
     <div className="main">
     <div className="form">
       <form>

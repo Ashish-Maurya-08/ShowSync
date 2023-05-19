@@ -1,31 +1,39 @@
 import userContext from "../context/userData"
-import { useContext,useState } from "react";
+import { useContext,useEffect,useState } from "react";
 import { Button } from "@mui/material";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { getFriends,getList } from "./api/server";
+import { getFriends,GetList } from "./api/server";
+
+
 const Profile = (props) => {
 
     const data = useContext(userContext);
     const navigate = useNavigate();
-    // const [lists,setLists]=useState(null);
+    const [lists,setLists]=useState(null);
 
-    
-        // api.get('/friends',{userId:data.userId}).then((res)=>{
-        //     console.log(res);
-        //     console.log(data);
-        // })
-        // .catch((err)=>{
-        //     console.log(err);
-        // })
-        
-        // getFriends(data.userId).then((res)=>{
-        //     console.log(res);
-        // })
-    if(data){
-        getList(data.userId).then((res)=>{
-            console.log(res.lists);
-            // setLists(res.lists)
+
+    useEffect(() => {
+        if (!props.loggedIn) {
+            navigate('/login')
+        }
+    }, [props.loggedIn])
+
+    if(data && !lists){
+        GetList(data.userId).then((res)=>{
+            if(!res){
+                navigate('/login')
+            }
+            if(res.lists){ 
+                setLists(res.lists)
+                console.log(res.lists);
+            }
+            else{
+                console.log("no lists");
+            }
+        })
+        .catch((err)=>{
+            console.log(err);
         })
     }
 

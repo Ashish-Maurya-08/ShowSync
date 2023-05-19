@@ -1,14 +1,31 @@
 import axios from "axios";
 // import { useContext } from "react";
 // import userData from "../../Contexts/userData";
+import { useNavigate } from "react-router-dom";
 
 const userData = localStorage.getItem("data");
+console.log(userData);
 let userId, token;
 if(userData){
-    const { userId, token, } = JSON.parse(userData);
+    ({ userId, token} = JSON.parse(userData));
 }
 
-const api = axios.create({
+function updateToken(){
+    const userData = localStorage.getItem("data");
+    if(userData){
+        ({ userId, token} = JSON.parse(userData));
+    }
+    api=axios.create({
+        // baseURL:"http://localhost:5000/",
+        baseURL: "https://show-sync-backend.vercel.app/",
+        headers: {
+            "authorization": `Bearer ${token}`
+        }
+    })
+}
+
+
+let api = axios.create({
     // baseURL:"http://localhost:5000/",
     baseURL: "https://show-sync-backend.vercel.app/",
     headers: {
@@ -16,12 +33,22 @@ const api = axios.create({
     }
 })
 
-export async function getList(id){
+export async function GetList(id){
+    updateToken();
+    if(!token){
+        alert("Please Login");
+        return false;
+    }
     const payload={
         userId:id
     }
     const res=await api.post(`/list`,payload)
     return res.data;
+}
+
+export async function getUser(id){
+    const res=await api.post(`/list/user`,{userId:id})
+    console.log(res);
 }
 
 // export async function getFriends(){
@@ -32,7 +59,12 @@ export async function getList(id){
 //     return res.data;
 // }
 
-export async function addtoList(type, id) {
+export async function AddtoList(type, id) {
+    updateToken();
+    if(!token){
+        alert("Please Login");
+        return false;
+    }
     const payload={
         userId:userId,
         type:type,

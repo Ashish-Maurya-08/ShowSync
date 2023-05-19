@@ -9,6 +9,7 @@ import SignUp from './Auth/Signup';
 import { Button } from '@mui/material';
 import userContext from './context/userData';
 import Profile from './Components/profile';
+import User from './Components/user';
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
   const [token, setToken] = useState(null);
   const [user, setUser] = useState(null);
   const [userId, setUserId] = useState(null);
+  const [loggedIn, setLoggedIn] = useState(false);
 
   useEffect( () => {
     const getToken = () => {
@@ -25,10 +27,21 @@ function App() {
         setToken(parsedToken.token);
         setUser(parsedToken.name);
         setUserId(parsedToken.userId);
+        setLoggedIn(true);
       }
     }
     getToken();
   }, [token])
+
+  useEffect(() => {
+    if (token) {
+      setLoggedIn(true);
+    }
+    else{
+      setLoggedIn(false);
+    }
+  }, [token])
+
 
   
 
@@ -47,9 +60,11 @@ function App() {
           <Route path="/search" element={<Search />} />
           <Route path='/movie/:id' element={<DetailPage type="movie" />} />
           <Route path='/tv/:id' element={<DetailPage type="tv" />} />
-          <Route path='/login' element={<Login setToken={setToken} token={token}/>} />
+          <Route path='/person/:id' element={<DetailPage type="person" />} />
+          <Route path='/user/:id' element={<User />} />
+          <Route path='/login' element={<Login setToken={setToken} token={token} loggedIn={loggedIn}/>}  />
           <Route path='/signup' element={<SignUp token={token} />} />
-          <Route path='/profile' element={<Profile setToken={setToken} setUser={setUser}/>}/>
+          <Route path='/profile' element={<Profile setToken={setToken} setUser={setUser} loggedIn={loggedIn}/>}/>
         </Routes>
       </BrowserRouter>
     </div>

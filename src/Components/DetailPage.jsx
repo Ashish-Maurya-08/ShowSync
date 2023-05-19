@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import { useParams, useNavigate } from "react-router-dom"
 import './main.css'
 import { getDetail } from "./api/functions"
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import HeartBrokenIcon from '@mui/icons-material/HeartBroken';
 import notFound from "../notFound.png";
 import Layout from "../Layout/Layout";
-import {addtoList} from "../Components/api/server"
+import {AddtoList} from "../Components/api/server"
 
 const DetailPage = (props) => {
     const { id } = useParams()
     console.log(id);
+    const navigate = useNavigate();
 
 
     const [detail, setDetail] = useState([]);
@@ -49,7 +50,10 @@ const DetailPage = (props) => {
     }
 
     const add = async (type,id) => {
-        await addtoList(type, id).then((res)=>{
+        await AddtoList(type, id).then((res)=>{
+            if(!res){
+                navigate('/login')
+            }
             console.log(res);
         })
     }
