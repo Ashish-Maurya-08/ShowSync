@@ -10,14 +10,37 @@ import { Button } from '@mui/material';
 import userContext from './context/userData';
 import Profile from './Components/profile';
 import User from './Components/user';
+import { verifyUser } from './Components/api/server';
 
 
 function App() {
+
+  useEffect(() => {
+    const verify = async () => {
+      try{
+        const res = await verifyUser();
+        if(res){
+          console.log(res);
+        }
+        else{
+          localStorage.removeItem("data");
+        }
+      }
+      catch(err){
+        console.log(err);
+      }
+
+    }
+    verify();
+  }, [])
+  
 
   const [token, setToken] = useState(null);
   const [user, setUser] = useState(null);
   const [userId, setUserId] = useState(null);
   const [loggedIn, setLoggedIn] = useState(false);
+
+
 
   useEffect( () => {
     const getToken = () => {
@@ -41,6 +64,7 @@ function App() {
       setLoggedIn(false);
     }
   }, [token])
+  
 
 
   

@@ -4,7 +4,6 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const userData = localStorage.getItem("data");
-console.log(userData);
 let userId, token;
 if(userData){
     ({ userId, token} = JSON.parse(userData));
@@ -16,8 +15,8 @@ function updateToken(){
         ({ userId, token} = JSON.parse(userData));
     }
     api=axios.create({
-        // baseURL:"http://localhost:5000/",
-        baseURL: "https://show-sync-backend.vercel.app/",
+        baseURL:"http://localhost:5000/",
+        // baseURL: "https://show-sync-backend.vercel.app/",
         headers: {
             "authorization": `Bearer ${token}`
         }
@@ -26,8 +25,8 @@ function updateToken(){
 
 
 let api = axios.create({
-    // baseURL:"http://localhost:5000/",
-    baseURL: "https://show-sync-backend.vercel.app/",
+    baseURL:"http://localhost:5000/",
+    // baseURL: "https://show-sync-backend.vercel.app/",
     headers: {
         "authorization": `Bearer ${token}`
     }
@@ -76,3 +75,17 @@ export async function AddtoList(type, id) {
 
 
 
+export async function verifyUser(){
+    updateToken();
+    if(!token){
+        return false;
+    }
+    try{
+        const res=await api.post(`/auth/verify`)
+        return res;
+    }
+    catch(err){
+        console.log(err);
+        return false;
+    }
+} 

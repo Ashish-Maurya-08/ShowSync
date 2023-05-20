@@ -176,9 +176,12 @@ const DetailPage = (props) => {
                                 <div className="tagline">{detail.tagline}</div>
                             </div>
                             <div className="operation">
+                            {
+
+                            }
                             <button name="favorites" id='hist' onClick={(e)=>{add(e.target.name,detail.id)}}>ADD TO FAVOURITES</button>
-                            <button  id='coll'>ADD TO MY LIST</button>
-                            <button name="planned" id='watc' onClick={(e)=>{add(e.target.name,detail.id)}} >ADD TO WATCHLIST</button>
+                            <button name="completed"  id='coll' onClick={(e)=>{add(e.target.name,detail.id)}}>ALREADY WATCHED ?</button>
+                            <button name="planned" id='watc' onClick={(e)=>{add(e.target.name,detail.id)}}>ADD TO WATCHLIST</button>
                             </div>
                         </div>
                     </div>

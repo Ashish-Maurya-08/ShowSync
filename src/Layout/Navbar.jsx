@@ -13,7 +13,6 @@ const NavBar = (props) => {
   const [menu,setmenu] = useState("hide");
 
   const data=useContext(userContext);
-  console.log(data.user);
 
   function toggleMenu() {
     if(menu==="hide"){
