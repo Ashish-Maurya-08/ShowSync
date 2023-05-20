@@ -1,0 +1,87 @@
+.profile_page{
+    color: white;
+    font-family:poppins;
+    font-size: 1.2rem;
+    /* height: 100vh; */
+    padding-bottom: 5vh;
+}
+
+.tag{
+    font-size: 2rem;
+    text-decoration:underline aqua;
+    text-underline-offset: 6px;
+    padding: 1rem 0;
+    font-weight: bold;
+    /* text-decoration: underline; */
+}
+
+.profile_nav{
+    display: flex;
+    padding: 0 2rem;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.profile_nav button{
+    /* height: 3rem; */
+    cursor: pointer;
+}
+
+/* create overflow-y scroll */
+.listContainer{
+    height: auto;
+    max-width: 100vw;
+    overflow: scroll;
+    display: flex;
+    /* align-items: center; */
+    justify-content: flex-start;
+    gap: 1.5rem;
+    padding: 1rem 1rem;
+}
+
+
+.list_items{
+    /* max-height: 10vh; */
+    min-width: 15rem;
+    max-width: 15rem;
+}
+
+
+.imageContainer img{
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+}
+
+
+@media screen and (max-width: 1000px) {
+    /* .listContainer{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    } */
+
+    .tag{
+        font-size: 1.5rem;
+    }
+    .profile_page{
+        font-size: 15px;
+    }
+    .list_items{
+        min-width: 10rem;
+        max-width: 10rem;
+    }
+}
+
+@media screen and (max-width: 600px){
+    .tag{
+        font-size: 1rem;
+    }
+    .list_items{
+        min-width: 8rem;
+        max-width: 8rem;
+    }
+    .profile_page{
+        font-size: 10px;
+    }
+}

@@ -51,9 +51,9 @@ const NavBar = (props) => {
       </div>
       <div>
           {data.user?
-          <Link to="/profile" className="hover">{data.user}</Link>
+          <Link to="/profile" className="login">{data.user}</Link>
           :
-          <Link to="/login" className="hover">Login</Link>}
+          <Link to="/login" className="login">Login</Link>}
       </div>
       </div>
 
@@ -82,9 +82,9 @@ const NavBar = (props) => {
         </div>
         <div>
         {data.user?
-          <Link to="/profile" className="hover">{data.user}</Link>
+          <Link to="/profile" className="login">{data.user}</Link>
           :
-          <Link to="/login" className="hover">Login</Link>}
+          <Link to="/login" className="login">Login</Link>}
         </div>
       </div>
     </div>

@@ -49,10 +49,18 @@ const DetailPage = (props) => {
         runtime = detail.runtime;
     }
 
-    const add = async (type,id) => {
-        await AddtoList(type, id).then((res)=>{
+    const add = async (type) => {
+        const id=detail.id;
+        const mtype=props.type;
+        console.log(mtype,id);
+        await AddtoList(type, id, mtype).then((res)=>{
             if(!res){
+                localStorage.removeItem("data");
+                props.setToken(null);
                 navigate('/login')
+            }
+            if(res===201){
+                alert("Added to list");
             }
             console.log(res);
         })

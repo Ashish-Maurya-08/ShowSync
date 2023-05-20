@@ -57,9 +57,7 @@
   right: 0;
   background-color: rgba(0, 0, 0, 0.7);
   padding: 20px;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
-  font-size: 1.5rem;
+  font-size: 120%;
   overflow: hidden;
   font-weight: bolder;
   color: #fff;
@@ -135,6 +133,9 @@
   }
   .full_page{
     font-size: 12px;
+  }
+  .text-overlay{
+    font-size: 100%;
   }
 }
 

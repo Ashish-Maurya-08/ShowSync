@@ -15,8 +15,8 @@ function updateToken(){
         ({ userId, token} = JSON.parse(userData));
     }
     api=axios.create({
-        // baseURL:"http://localhost:5000/",
-        baseURL: "https://show-sync-backend.vercel.app/",
+        baseURL:"http://localhost:5000/",
+        // baseURL: "https://show-sync-backend.vercel.app/",
         headers: {
             "authorization": `Bearer ${token}`
         }
@@ -25,8 +25,8 @@ function updateToken(){
 
 
 let api = axios.create({
-    // baseURL:"http://localhost:5000/",
-    baseURL: "https://show-sync-backend.vercel.app/",
+    baseURL:"http://localhost:5000/",
+    // baseURL: "https://show-sync-backend.vercel.app/",
     headers: {
         "authorization": `Bearer ${token}`
     }
@@ -47,18 +47,25 @@ export async function GetList(id){
 
 export async function getUser(id){
     const res=await api.post(`/list/user`,{userId:id})
-    console.log(res);
+    .catch((err)=>{
+        alert(err.response.data.message);
+        return false;
+    })
+    return res;
 }
 
-// export async function getFriends(){
-//     const payload={
-//         userId:userId
-//     }
-//     const res=await api.post(`/friends`,payload)
-//     return res.data;
-// }
+export async function getFriends(){
+    updateToken();
+    if(!token){
+        alert("Please Login");
+        return false;
+    }
+    const res=await api.post(`/friends`,{userId:userId})
+    console.log(res);
+    return res.data;
+}
 
-export async function AddtoList(type, id) {
+export async function AddtoList(type,id,mtype) {
     updateToken();
     if(!token){
         alert("Please Login");
@@ -67,11 +74,37 @@ export async function AddtoList(type, id) {
     const payload={
         userId:userId,
         type:type,
-        movieId:id
+        movieId:id,
+        mtype:mtype
     }
-    const res=await api.post(`/list/add`,payload)
-    return res;
+
+        const res=await api.post(`/list/add`,payload)
+        .catch((err)=>{
+            alert(err.response.data.message);
+        })
+        return res.status;
 }
+
+export async function removeFromList(type,id,mtype) {
+    updateToken();
+    if(!token){
+        alert("Please Login");
+        return false;
+    }
+    const payload={
+        userId:userId,
+        type:type,
+        movieId:id,
+        mtype:mtype
+    }
+    const res=await api.post(`/list/remove`,payload)
+    .catch((err)=>{
+        alert(err.response.data.message);
+    })
+    return res.status;
+
+}
+
 
 
 

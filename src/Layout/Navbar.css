@@ -113,6 +113,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  text-shadow: -4px 3px 20px #000000a5;
 }
 
 .showMobile{
@@ -135,7 +136,11 @@ a{
 }
 
 .hover:hover{
-  color: red;
+  color:crimson;
+}
+
+.login:hover{
+  color: aqua;
 }
 
 

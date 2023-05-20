@@ -64,6 +64,7 @@ const SignUp=(props)=>{
   return(
     <div className="main">
     <div className="form">
+    <h1 style={{color:"grey"}}>Welcome {data.username}</h1>
       <form>
         <TextField required type="text" label="Username" name="username" onChange={(e)=>{handleChange(e)}}/>
         <TextField required type="text" label="Email" name="email" onChange={(e)=>{handleChange(e)}}/>

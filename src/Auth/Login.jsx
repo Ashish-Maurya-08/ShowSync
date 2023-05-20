@@ -47,6 +47,7 @@ const Login=(props)=>{
         if(res.status===200){
           localStorage.setItem("data", JSON.stringify(res.data));
           props.setToken(res.data.token);
+          alert("Login Successful")
           navigate("/");
         }
       })
@@ -63,6 +64,7 @@ const Login=(props)=>{
   return(
     <div className="main">
     <div className="form">
+    <h1 className="heading" style={{color:"grey"}}>Welcome Back!</h1>
       <form>
         <TextField type="text" label="Email" name="username" required="true" onChange={(e)=>handleChange(e)}/>
         <TextField type="password" label="Password" name="password" required onChange={(e)=>handleChange(e)}/>

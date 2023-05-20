@@ -164,7 +164,10 @@ div li{
     color: white;
     text-shadow: -4px 3px 10px #000000;
     text-align:start ;
+    padding:0.7rem 0 ;
     padding-left: 35%;
+    margin: 0;
+    backdrop-filter: blur(10px);
 }
 
 
@@ -266,10 +269,15 @@ div li{
         padding: 0;
         justify-content: center;
         text-align: center;
+        font-family:monospace;
     }
     .overlay-data h1{
         font-size: 20px;
-        padding: 0;
+        /* background-color: rgba(0, 0, 0, 0.9); */
+        backdrop-filter: blur(10px);
+
+        margin: 0;
+        padding: 14px 0;
         text-align: center;
     }
     .mid-top-ul{
