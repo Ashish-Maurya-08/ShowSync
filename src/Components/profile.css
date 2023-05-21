@@ -107,6 +107,9 @@ button{
         min-width: 10rem;
         max-width: 10rem;
     }
+    .buttons{
+        flex-direction: column;
+    }
 }
 
 @media screen and (max-width: 600px){
