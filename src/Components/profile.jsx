@@ -72,7 +72,7 @@ const Profile = (props) => {
             <div className="profile_nav">
                 <h1>Welcome, {data.user}</h1>
                 <div >
-                    <Button variant='contained' color="success" onClick={showFriends} style={{ margin: "0 2rem" }}>Friends</Button>
+                    {/* <Button variant='contained' color="success" onClick={showFriends} style={{ margin: "0 2rem" }}>Friends</Button> */}
                     <Button variant='contained' onClick={logout}>Logout</Button>
                 </div>
             </div>
