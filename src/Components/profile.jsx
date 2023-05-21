@@ -1,9 +1,9 @@
 import userContext from "../context/userData"
 import { useContext, useEffect, useState } from "react";
 import { Button } from "@mui/material";
-import axios from "axios";
+// import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { getFriends, GetList } from "./api/server";
+import { GetList } from "./api/server";
 import List from "./List";
 import './profile.css'
 
@@ -16,13 +16,17 @@ const Profile = (props) => {
     const navigate = useNavigate();
     const [lists, setLists] = useState(null);
     const [update, setUpdate] = useState(false);
-    const [friends, setFriends] = useState(null);
+    const [hasList, setHasList] = useState(true);
+    // const [friends, setFriends] = useState(null);
 
     // get lists
     async function getLists() {
         if (data) {
-            GetList(data.userId).then((res) => {
+            await GetList(data.userId).then((res) => {
                 if (!res) {
+                    localStorage.removeItem("data");
+                    props.setToken(null);
+                    alert("Session expired, Please login to continue");
                     navigate('/login')
                 }
                 if (res.lists) {
@@ -30,11 +34,12 @@ const Profile = (props) => {
                 }
                 else {
                     console.log("no lists");
+                    setHasList(false);
                 }
             })
-                .catch((err) => {
-                    console.log(err);
-                })
+            .catch((err) => {
+                console.log(err);
+            })
         }
     }
 
@@ -46,7 +51,6 @@ const Profile = (props) => {
     useEffect(() => {
         setLists(null);
     }, [update])
-    console.log(lists);
 
     // logout
 
@@ -58,11 +62,11 @@ const Profile = (props) => {
         navigate('/');
     }
 
-    function showFriends() {
-        getFriends().then((res) => {
-            console.log(res);
-        })
-    }
+    // function showFriends() {
+    //     getFriends().then((res) => {
+    //         console.log(res);
+    //     })
+    // }
 
 
 
@@ -76,6 +80,9 @@ const Profile = (props) => {
                     <Button variant='contained' onClick={logout}>Logout</Button>
                 </div>
             </div>
+            {
+                !hasList ? <h2 className="empty">List is Empty</h2> : <></>
+            }
             {
                 lists && Object.keys(lists).map((key) => {
                     if (lists[key].length === 0) {

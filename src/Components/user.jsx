@@ -10,15 +10,20 @@ const User =(props)=>{
     const navigate=useNavigate();
     const [data,setData]=useState(null);
     const [user,setUser]=useState(null);
+    const [hasList, setHasList] = useState(true);
 
     useEffect(()=>{
     getUser(id).then((res)=>{
         console.log(res);
         if(!res){
+
             navigate("/");
         }
         if(res.data){
             setData(res.data.lists);
+        }
+        else{
+            setHasList(false);
         }
     })
     getDetail(id).then((res)=>{
@@ -41,6 +46,9 @@ const User =(props)=>{
             <h1>User</h1>
         }
         </div>
+        {
+                !hasList ? <h2 className="empty">List is Empty</h2> : <></>
+            }
         {
             data && Object.keys(data).map((key) => {
                 if (data[key].length === 0) {

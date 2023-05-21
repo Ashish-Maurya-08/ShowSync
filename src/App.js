@@ -6,7 +6,6 @@ import DetailPage from './Components/DetailPage';
 import Search from "./Components/Search";
 import Login from './Auth/Login';
 import SignUp from './Auth/Signup';
-import { Button } from '@mui/material';
 import userContext from './context/userData';
 import Profile from './Components/profile';
 import User from './Components/user';
@@ -14,11 +13,17 @@ import { verifyUser } from './Components/api/server';
 
 
 function App() {
+  
+    const [token, setToken] = useState(null);
+    const [user, setUser] = useState(null);
+    const [userId, setUserId] = useState(null);
+    const [loggedIn, setLoggedIn] = useState(false);
 
   useEffect(() => {
     const verify = async () => {
       try{
         const res = await verifyUser();
+        console.log(res);
         if(res){
           console.log(res);
         }
@@ -32,13 +37,8 @@ function App() {
 
     }
     verify();
-  }, [])
+  }, [token])
   
-
-  const [token, setToken] = useState(null);
-  const [user, setUser] = useState(null);
-  const [userId, setUserId] = useState(null);
-  const [loggedIn, setLoggedIn] = useState(false);
 
 
 

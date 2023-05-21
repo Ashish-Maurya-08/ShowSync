@@ -57,6 +57,7 @@ const DetailPage = (props) => {
             if(!res){
                 localStorage.removeItem("data");
                 props.setToken(null);
+                alert("Please login to add to list");
                 navigate('/login')
             }
             if(res===201){

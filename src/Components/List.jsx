@@ -1,5 +1,6 @@
 import {getDetail} from './api/functions'
 import { useState,useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './profile.css'
 import { Link } from 'react-router-dom';
 import { removeFromList,setWatched } from './api/server';
@@ -9,6 +10,7 @@ function List(props) {
   const [detail, setDetail] = useState([]);
   const type=props.id.mediaType;
   const id=props.id.mediaId;
+  const navigate=useNavigate();
 
   async function getDetails() {
     await getDetail(props.id.mediaId, props.id.mediaType)
@@ -25,6 +27,12 @@ function List(props) {
   async function removeList() {
     await removeFromList(props.type,id,type)
       .then((res) => {
+        if (!res) {
+          localStorage.removeItem("data");
+          props.setToken(null);
+          alert("Session expired, Please login to continue");
+          navigate('/login')
+        }
         if (res === 201) {
           props.setUpdate(!props.update);
         }
@@ -33,6 +41,12 @@ function List(props) {
   async function watched() {
     await setWatched(id,type)
       .then((res) => {
+        if (!res) {
+          localStorage.removeItem("data");
+          props.setToken(null);
+          alert("Session expired, Please login to continue");
+          navigate('/login')
+        }
         if (res === 201) {
           props.setUpdate(!props.update);
         }
