@@ -11,7 +11,7 @@
     text-decoration:underline aqua;
     text-underline-offset: 6px;
     padding: 1rem 0;
-    font-weight: bold;
+    /* font-weight: bold; */
     /* text-decoration: underline; */
 }
 
@@ -43,7 +43,7 @@
     visibility: hidden;
     background-color:cadetblue;
     font-size: 1rem;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: poppins;
     outline: none;
     border: none;
     padding: 0.3rem 0.5rem;
@@ -68,6 +68,10 @@
     border-radius: 10px;
 }
 
+.title{
+    font-size: 1.4rem;
+    font-family: kanit;
+}
 
 @media screen and (max-width: 1000px) {
     /* .listContainer{
@@ -89,6 +93,12 @@
 }
 
 @media screen and (max-width: 600px){
+    .title{
+        font-size: 1rem;
+    }
+    .showHover{
+        font-size: 0.7rem;
+    }
     .tag{
         font-size: 1rem;
     }
