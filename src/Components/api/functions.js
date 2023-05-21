@@ -38,7 +38,7 @@ async function getImages(type,id){
     return res.data;
 }
 
-async function getSearch(type,query,page=1){
+async function getSearch(query,page=1){
     const res=await axios.get(`${api.baseURL}/search/multi?query=${query}&page=${page}&api_key=${api.key}&region=IN`);
     return res.data;
 }

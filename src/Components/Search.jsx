@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import SearchIcon from '@mui/icons-material/Search';
-import Select from 'react-select'
 import { getSearch } from "./api/functions";
 import MoviesContainer from "./MoviesContainer";
 import { Button } from "@mui/material";
@@ -8,7 +7,6 @@ import Layout from "../Layout/Layout";
 const Search = () => {
 
     const [query, setQuery] = useState();
-    const [type, setType] = useState("movie");
     const [result, setRes] = useState();
     const [page, setPage] = useState(1);
 
@@ -19,7 +17,7 @@ const Search = () => {
         setPage(page + 1);
     }
     useEffect(() => {
-        if (query && type) {
+        if (query) {
             let cancel = true;
             setTimeout(() => {
                 if (cancel) {
@@ -30,21 +28,21 @@ const Search = () => {
                 cancel = false;
             }
         }
-    }, [type, query, page])
+    }, [query, page])
 
     useEffect(() => {
-        if (query && type) {
+        if (query) {
             getData();
         }
-    }, [type, page])
+    }, [ page])
 
     useEffect(() => {
         setPage(1);
-    }, [type, query])
+    }, [query])
 
     async function getData() {
         setRes(null);
-        await getSearch(type, query, page)
+        await getSearch(query, page)
             .then(res => {
                 if (res.results.length > 0) {
                     setRes(res.results);
@@ -57,9 +55,6 @@ const Search = () => {
         setQuery(e.target.value);
     }
 
-    const handleType = (e) => {
-        setType(e.value);
-    }
 
     return (
         <Layout>
