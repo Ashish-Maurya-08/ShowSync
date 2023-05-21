@@ -57,9 +57,10 @@
   right: 0;
   background-color: rgba(0, 0, 0, 0.7);
   padding: 20px;
-  font-size: 120%;
+  font-size: 130%;
   overflow: hidden;
   font-weight: bolder;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   color: #fff;
   border-radius: 10px;
 }
@@ -136,6 +137,7 @@
   }
   .text-overlay{
     font-size: 100%;
+    font-family: Poppins;
   }
 }
 
