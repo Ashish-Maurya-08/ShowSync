@@ -1,5 +1,5 @@
 import React, { useEffect,useState } from 'react';
-import { getUser } from './api/server';
+import { getDetail, getUser } from './api/server';
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import List from './List';
@@ -9,6 +9,7 @@ const User =(props)=>{
     const id=useParams().id;
     const navigate=useNavigate();
     const [data,setData]=useState(null);
+    const [user,setUser]=useState(null);
 
     useEffect(()=>{
     getUser(id).then((res)=>{
@@ -20,12 +21,25 @@ const User =(props)=>{
             setData(res.data.lists);
         }
     })
+    getDetail(id).then((res)=>{
+        if(res){
+            setUser(res);
+        }
+        else{
+            navigate("/");
+        }
+    })
     },[])
 
     return(
         <div className="profile_page">
         <div className="profile_nav">
+        {
+            user ?
+            <h1>{user.name}</h1>
+            :
             <h1>User</h1>
+        }
         </div>
         {
             data && Object.keys(data).map((key) => {

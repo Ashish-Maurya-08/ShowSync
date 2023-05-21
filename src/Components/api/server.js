@@ -15,8 +15,8 @@ function updateToken(){
         ({ userId, token} = JSON.parse(userData));
     }
     api=axios.create({
-        // baseURL:"http://localhost:5000/",
-        baseURL: "https://show-sync-backend.vercel.app/",
+        baseURL:"http://localhost:5000/",
+        // baseURL: "https://show-sync-backend.vercel.app/",
         headers: {
             "authorization": `Bearer ${token}`
         }
@@ -25,8 +25,8 @@ function updateToken(){
 
 
 let api = axios.create({
-    // baseURL:"http://localhost:5000/",
-    baseURL: "https://show-sync-backend.vercel.app/",
+    baseURL:"http://localhost:5000/",
+    // baseURL: "https://show-sync-backend.vercel.app/",
     headers: {
         "authorization": `Bearer ${token}`
     }
@@ -103,6 +103,41 @@ export async function removeFromList(type,id,mtype) {
     })
     return res.status;
 
+}
+
+export async function setWatched(id,type) {
+    updateToken();
+    if(!token){
+        alert("Please Login");
+        return false;
+    }
+    const payload={
+        userId:userId,
+        movieId:id,
+        mtype:type
+    }
+    const res=await api.post(`/list/update`,payload)
+    .catch((err)=>{
+        alert(err.response.data.message);
+    }
+    )
+    return res.status;
+}
+
+
+export async function getDetail(id){
+    updateToken();
+    if(!token){
+        alert("Please Login");
+        return false;
+    }
+
+    const res=await api.post(`/auth/user`,{id:id})
+    .catch((err)=>{
+        alert(err.response.data.message);
+        return false;
+    })
+    return res.data;
 }
 
 

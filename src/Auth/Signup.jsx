@@ -51,7 +51,7 @@ const SignUp=(props)=>{
         }
       })
       .catch((err)=>{
-        alert(err);
+        alert(err.response.data.message);
       }
       )
     }

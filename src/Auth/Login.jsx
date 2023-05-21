@@ -53,7 +53,7 @@ const Login=(props)=>{
       })
       .catch((err)=>{
         console.log(err);
-        alert(err);
+        alert(err.response.data.message);
       })
     }
     else{
