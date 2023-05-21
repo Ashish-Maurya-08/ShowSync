@@ -136,11 +136,14 @@ a{
 }
 
 .hover:hover{
-  color:crimson;
+  /* color:crimson; */
+  text-decoration: underline crimson 2px;
+  text-underline-offset: 3px;
 }
 
 .login:hover{
-  color: aqua;
+  text-decoration: underline aqua 2px;
+  text-underline-offset: 3px;
 }
 
 
