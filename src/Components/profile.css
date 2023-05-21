@@ -41,8 +41,8 @@
 
 .showHover{
     visibility: hidden;
-    background-color:cadetblue;
-    font-size: 1rem;
+    background-color: rgb(79, 211, 180);
+    font-size: 0.9rem;
     font-family: poppins;
     outline: none;
     border: none;
@@ -57,8 +57,8 @@
 
 .list_items{
     /* max-height: 10vh; */
-    min-width: 15rem;
-    max-width: 15rem;
+    min-width: 14rem;
+    max-width: 14rem;
 }
 
 
@@ -69,7 +69,7 @@
 }
 
 .title{
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     font-family: kanit;
 }
 
@@ -103,8 +103,8 @@ button{
         font-size: 15px;
     }
     .list_items{
-        min-width: 10rem;
-        max-width: 10rem;
+        min-width: 9rem;
+        max-width: 9rem;
     }
     .buttons{
         flex-direction: column;
@@ -122,8 +122,8 @@ button{
         font-size: 1rem;
     }
     .list_items{
-        min-width: 8rem;
-        max-width: 8rem;
+        min-width: 7rem;
+        max-width: 7rem;
     }
     .profile_page{
         font-size: 10px;
