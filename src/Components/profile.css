@@ -39,6 +39,21 @@
     padding: 1rem 1rem;
 }
 
+.showHover{
+    visibility: hidden;
+    background-color:cadetblue;
+    font-size: 1rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    outline: none;
+    border: none;
+    padding: 0.3rem 0.5rem;
+    margin-top: 0.5rem;
+    border-radius: 5px;
+}
+
+.list_items:hover .showHover{
+    visibility: visible;
+}
 
 .list_items{
     /* max-height: 10vh; */

@@ -40,10 +40,11 @@ function List(props) {
       <div className='imageContainer'>
         <Link to={`/${type}/${id}`}><img src={`https://image.tmdb.org/t/p/w500${detail.poster_path}`} alt={detail.title} /></Link>
       </div>
+      <div className='title'>{detail.name || detail.title}</div>
       {
-        props.page==='user' ? <div className='title'>{detail.name || detail.title}</div>:
+        props.page==='user' ? <></>:
       <div>
-        <Button variant='outlined' color='error' onClick={removeList}>Remove</Button>
+        <button className='showHover' onClick={removeList}>Remove</button>
       </div>
       }
     </div>
