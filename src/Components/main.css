@@ -11,6 +11,8 @@
 
 .head-pic{
     height: 80vh;
+    padding-bottom: 5rem;
+    /* padding-top: 3rem; */
     position: relative;
     overflow: hidden;
 }
@@ -218,7 +220,7 @@ div li{
 
     .overlay-data h1{
         text-align: center;
-        padding:0;
+        padding-left:0;
     }
 
     .mid-top-ul{
@@ -318,7 +320,13 @@ div li{
     }
     .head-pic{
         height: 100%;
+        position: relative;
+        padding-bottom: 3rem;
+        padding-top: 3rem;
        
+    }
+    .overlay-data h1{
+        display: none;
     }
     .head-pic img{
         object-fit:cover;
