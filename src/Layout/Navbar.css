@@ -138,12 +138,12 @@ a{
 .hover:hover{
   /* color:crimson; */
   text-decoration: underline crimson 2px;
-  text-underline-offset: 3px;
+  text-underline-offset: 5px;
 }
 
 .login:hover{
   text-decoration: underline aqua 2px;
-  text-underline-offset: 3px;
+  text-underline-offset: 5px;
 }
 
 
