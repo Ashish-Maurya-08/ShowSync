@@ -1,7 +1,5 @@
 import axios from "axios";
-// import { useContext } from "react";
-// import userData from "../../Contexts/userData";
-import { useNavigate } from "react-router-dom";
+
 
 const userData = localStorage.getItem("data");
 let userId, token;
@@ -15,8 +13,8 @@ function updateToken(){
         ({ userId, token} = JSON.parse(userData));
     }
     api=axios.create({
-        baseURL:"http://localhost:5000/",
-        // baseURL: "https://show-sync-backend.vercel.app/",
+        // baseURL:"http://localhost:5000/",
+        baseURL: "https://show-sync-backend.vercel.app/",
         headers: {
             "authorization": `Bearer ${token}`
         }
@@ -25,8 +23,8 @@ function updateToken(){
 
 
 let api = axios.create({
-    baseURL:"http://localhost:5000/",
-    // baseURL: "https://show-sync-backend.vercel.app/",
+    // baseURL:"http://localhost:5000/",
+    baseURL: "https://show-sync-backend.vercel.app/",
     headers: {
         "authorization": `Bearer ${token}`
     }
