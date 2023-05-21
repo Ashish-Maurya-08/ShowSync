@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
 import MenuIcon from '@mui/icons-material/Menu';
@@ -70,7 +70,7 @@ const NavBar = (props) => {
           <MenuIcon color="white"/>
         </div>
       </div>
-      <div className={`dropMenu ${menu}`}>
+      <div className={`dropMenu ${menu}`}> 
         <div>
           <Link to="/movies" className="movies" onClick={toggleMenu}>Movies</Link>
         </div>

@@ -44,6 +44,9 @@ export async function GetList(id) {
     }
     const res = await api.post(`/list`, payload)
     .catch((err) => {
+        if(err.response.status===401){
+            return false;
+        }
         alert(err.response.data.message);
         return err.status;
     })
@@ -80,6 +83,9 @@ export async function AddtoList(type, id, mtype) {
 
     const res = await api.post(`/list/add`, payload)
         .catch((err) => {
+            if (err.response.status === 401) {
+                return false;
+            }
             alert(err.response.data.message);
             return err.status;
         })
@@ -98,6 +104,9 @@ export async function removeFromList(type, id, mtype) {
     }
     const res = await api.post(`/list/remove`, payload)
         .catch((err) => {
+            if (err.response.status === 401) {
+                return false;
+            }
             alert(err.response.data.message);
             return err.status;
         })
@@ -116,6 +125,9 @@ export async function setWatched(id, type) {
     }
     const res = await api.post(`/list/update`, payload)
         .catch((err) => {
+            if (err.response.status === 401) {
+                return false;
+            }
             alert(err.response.data.message);
             return err.status;
         })

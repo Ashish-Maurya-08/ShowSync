@@ -10,7 +10,6 @@ import {AddtoList} from "../Components/api/server"
 
 const DetailPage = (props) => {
     const { id } = useParams()
-    console.log(id);
     const navigate = useNavigate();
 
 
@@ -22,7 +21,6 @@ const DetailPage = (props) => {
     }
 
     
-    console.log(props.type);
 
     async function getDetails() {
         await getDetail(id, props.type)
@@ -36,7 +34,6 @@ const DetailPage = (props) => {
     }, [props.type])
 
 
-    console.log(detail);
     let title = detail.title;
     if (!title) {
         title = detail.name;
@@ -52,7 +49,6 @@ const DetailPage = (props) => {
     const add = async (type) => {
         const id=detail.id;
         const mtype=props.type;
-        console.log(mtype,id);
         await AddtoList(type, id, mtype).then((res)=>{
             if(!res){
                 localStorage.removeItem("data");
@@ -63,15 +59,9 @@ const DetailPage = (props) => {
             if(res===201){
                 alert("Added to list");
             }
-            console.log(res);
         })
     }
 
-    // const [exists, setExists] = useState(false)
-
-    // const checkDb = async (type,id) => {
-    //     const check=await checkList(type, id)
-    // }
 
     return (
         <Layout>

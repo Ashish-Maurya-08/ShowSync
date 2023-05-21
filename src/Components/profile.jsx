@@ -22,6 +22,7 @@ const Profile = (props) => {
     // get lists
     async function getLists() {
         if (data) {
+            console.log(data);
             await GetList(data.userId).then((res) => {
                 if (!res) {
                     localStorage.removeItem("data");

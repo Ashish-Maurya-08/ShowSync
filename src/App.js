@@ -19,13 +19,11 @@ function App() {
     const [userId, setUserId] = useState(null);
     const [loggedIn, setLoggedIn] = useState(false);
 
-  useEffect(() => {
     const verify = async () => {
       try{
         const res = await verifyUser();
-        console.log(res);
         if(res){
-          console.log(res);
+          // console.log(res);
         }
         else{
           localStorage.removeItem("data");
@@ -36,10 +34,10 @@ function App() {
       }
 
     }
+  useEffect(() => {
     verify();
   }, [token])
-  
-
+  verify();
 
 
   useEffect( () => {

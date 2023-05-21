@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import MoviesContainer from "./MoviesContainer";
 import './Container.css';
 import { getTrending, getTop, getUpcoming } from "./api/functions";
@@ -18,7 +18,6 @@ const MoviesPage = (props) => {
         setdata(null);
         setLoad(true);
         let cancel = true;
-        console.log(page);
         setTimeout(() => {
             if (cancel) {
                 console.log(page);

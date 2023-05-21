@@ -10,7 +10,7 @@ body {
   --font-outfit: Outfit;
   
   /* font sizes */
-  --font-size-13xl: 18px;
+  --font-size-13xl: 20px;
   
   /* Colors */
   --color-black: #000;
@@ -111,7 +111,7 @@ body {
 
 .navbar div{
   display: flex;
-  align-items: center;
+  align-items:center;
   justify-content: center;
   text-shadow: -4px 3px 20px #000000a5;
 }
@@ -128,7 +128,7 @@ a{
 }
 
 .showsync {
-  font-size: 28px;
+  font-size: 30px;
   font-variant: small-caps;
   font-style: oblique;
   color: white;
@@ -136,8 +136,7 @@ a{
 }
 
 .hover:hover{
-  /* color:crimson; */
-  text-decoration: underline crimson 2px;
+  text-decoration: underline tomato 2px;
   text-underline-offset: 5px;
 }
 
@@ -148,10 +147,11 @@ a{
 
 
 
-@media screen and (min-width: 500px) {
+@media screen and (min-width: 500px) and (min-width: 600px) {
   .dropMenu{
-    display: none;;
+    display: none;
   }
+
   
 }
 @media screen and (max-width: 600px) {
@@ -164,5 +164,6 @@ a{
   .showMobile{
     display: flex;
   }
+
   
 }
