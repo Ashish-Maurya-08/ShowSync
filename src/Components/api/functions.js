@@ -73,5 +73,15 @@ async function getProviders(type,id){
     return res.data;
 }
 
+async function getPerson(id){
+    const res=await axios.get(`${api.baseURL}/person/${id}?api_key=${api.key}&region=IN`);
+    return res.data;
+}
 
-export{getDetail,getImages,getPopular,getSearch,getTrending,getTop,getUpcoming,getRecommendations,getSimilar,getCast,getReviews,getVideos,getProviders}
+async function getCredits(id){
+    const res=await axios.get(`${api.baseURL}/person/${id}/combined_credits?api_key=${api.key}&region=IN`);
+    return res.data;
+}
+
+
+export{getDetail,getImages,getPopular,getSearch,getTrending,getTop,getUpcoming,getRecommendations,getSimilar,getCast,getReviews,getVideos,getProviders,getPerson,getCredits}

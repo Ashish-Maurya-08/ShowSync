@@ -10,6 +10,7 @@ import userContext from './context/userData';
 import Profile from './Components/profile';
 import User from './Components/user';
 import { verifyUser } from './Components/api/server';
+import Person from './Components/Person';
 
 
 function App() {
@@ -82,7 +83,7 @@ function App() {
           <Route path="/search" element={<Search />} />
           <Route path='/movie/:id' element={<DetailPage type="movie"  setToken={setToken}/>} />
           <Route path='/tv/:id' element={<DetailPage type="tv" setToken={setToken}/>} />
-          {/* <Route path='/person/:id' element={<DetailPage type="person" setToken={setToken}/>} /> */}
+          <Route path='/person/:id' element={<Person/>} />
           <Route path='/user/:id' element={<User />} />
           <Route path='/login' element={<Login setToken={setToken} token={token} loggedIn={loggedIn}/>}  />
           <Route path='/signup' element={<SignUp token={token} />} />

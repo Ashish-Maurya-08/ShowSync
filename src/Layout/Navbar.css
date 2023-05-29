@@ -136,12 +136,12 @@ a{
 }
 
 .hover:hover{
-  text-decoration: underline tomato 2px;
+  text-decoration: underline tomato 3px;
   text-underline-offset: 5px;
 }
 
 .login:hover{
-  text-decoration: underline aqua 2px;
+  text-decoration: underline aqua 3px;
   text-underline-offset: 5px;
 }
 

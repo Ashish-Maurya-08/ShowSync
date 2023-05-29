@@ -13,7 +13,7 @@ function List(props) {
         )
     }
   return (
-    <div className='list_items'>
+    <div className='smallList'>
       <div className='imageContainer'>
         <Link to={`/${type}/${id}`}><img src={`https://image.tmdb.org/t/p/w500${poster}`} alt={title} /></Link>
       </div>

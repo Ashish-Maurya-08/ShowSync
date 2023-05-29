@@ -62,6 +62,11 @@
     max-width: 14rem;
 }
 
+.smallList{
+    min-width: 12rem;
+    max-width: 12rem;
+}
+
 
 .imageContainer img{
     height: 100%;
@@ -107,6 +112,10 @@ button{
         min-width: 9rem;
         max-width: 9rem;
     }
+    .smallList{
+        min-width: 9rem;
+        max-width: 9rem;
+    }
     .buttons{
         flex-direction: column;
     }
@@ -123,6 +132,10 @@ button{
         font-size: 1rem;
     }
     .list_items{
+        min-width: 7rem;
+        max-width: 7rem;
+    }
+    .smallList{
         min-width: 7rem;
         max-width: 7rem;
     }
