@@ -83,10 +83,7 @@ const Profile = (props) => {
                 </div>
             </div>
             {
-                !hasList ? <h2 className="empty">List is Empty</h2> : <></>
-            }
-            {
-                lists && Object.keys(lists).map((key) => {
+                lists ? Object.keys(lists).map((key) => {
                     if (lists[key].length === 0) {
                         return (
                             <div className="empty">
@@ -108,6 +105,10 @@ const Profile = (props) => {
                 }
 
                 )
+                :
+                <div className="Loading">
+                <h2>Loading...</h2>
+                </div>
 
             }
         </div>

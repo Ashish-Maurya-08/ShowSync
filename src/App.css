@@ -79,6 +79,13 @@
   display: block;
 }
 
+.Loading{
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

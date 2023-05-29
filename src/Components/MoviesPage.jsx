@@ -109,7 +109,7 @@ const MoviesPage = (props) => {
                 <h1 className="headline">
                     {
                         isLoading || isError ?
-                            (<>{message}</>) :
+                            (<div className="Loading"><div>{message}</div></div>) :
                             (props.page === "upcoming") ?
                                 (<div>Upcoming Movies</div>) :
                                 (<>{Tag}<div style={{ color: "red" }}> {media} </div></>)

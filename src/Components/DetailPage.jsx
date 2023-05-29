@@ -296,7 +296,7 @@ const DetailPage = (props) => {
                     </div>
                 </div>
                 :
-                <div style={{height:"100vh",display:"flex",alignItems:"center",justifyContent:"center"}}>
+                <div className="Loading">
                     <h1>Loading...</h1>
                 </div>
             }
