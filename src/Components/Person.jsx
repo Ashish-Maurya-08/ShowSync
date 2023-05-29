@@ -40,13 +40,10 @@ const Person = (props) => {
             <div className="full_page">
                 <div className='person_page'>
                     <div className='person'>
-                        <div className="person__image">
+                        <div className="person_image">
                             <img src={`https://image.tmdb.org/t/p/original${person?.profile_path}`} alt="" />
                         </div>
                         <div className='person_info'>
-                        <div>
-                            <h1>{person?.name}</h1>
-                        </div>
                             <div>
                                 <div>
                                     Known For:
@@ -68,36 +65,39 @@ const Person = (props) => {
                         </div>
                     </div>
                     <div className='info'>
-                       
+                    <div>
+                                <h2>{person?.name}</h2>
+                            </div>
+
                         <div>
-                        {
-                            person?.biography && <h2>Biography</h2>
-                        }
+                            {
+                                person?.biography && <h2>Biography</h2>
+                            }
                             <p>{person?.biography}</p>
                         </div>
                         <div>
                             <h2>Known For</h2>
                             {
                                 credit?.cast?.length > credit?.crew?.length ?
-                            <div className='listContainer'>
-                                {
-                                    credit?.cast?.length > 0 && credit.cast.map((item) => {
-                                        return (
-                                            <List title={item.title || item.name} id={item.id} poster={item.poster_path} type={item.media_type} />
-                                        ) 
-                                    })
-                                }
-                            </div>
-                            :
-                            <div className='listContainer'>
-                            {
-                                    credit?.crew?.length > 0 && credit.crew.map((item) => {
-                                        return (
-                                            <List title={item.title || item.name} id={item.id} poster={item.poster_path} type={item.media_type} />
-                                        )
-                                    })
-                                }
-                            </div>
+                                    <div className='listContainer'>
+                                        {
+                                            credit?.cast?.length > 0 && credit.cast.map((item) => {
+                                                return (
+                                                    <List title={item.title || item.name} id={item.id} poster={item.poster_path} type={item.media_type} />
+                                                )
+                                            })
+                                        }
+                                    </div>
+                                    :
+                                    <div className='listContainer'>
+                                        {
+                                            credit?.crew?.length > 0 && credit.crew.map((item) => {
+                                                return (
+                                                    <List title={item.title || item.name} id={item.id} poster={item.poster_path} type={item.media_type} />
+                                                )
+                                            })
+                                        }
+                                    </div>
                             }
                         </div>
 
