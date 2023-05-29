@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { GetList } from "./api/server";
 import List from "./List";
 import './profile.css'
+import Loader from "../Layout/Loader";
 
 
 const Profile = (props) => {
@@ -106,9 +107,7 @@ const Profile = (props) => {
 
                 )
                 :
-                <div className="Loading">
-                <h2>Loading...</h2>
-                </div>
+                <Loader />
 
             }
         </div>

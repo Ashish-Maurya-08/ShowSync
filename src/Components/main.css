@@ -209,6 +209,10 @@ div li{
     width: 3rem;
 }
 
+.other_info h1{
+    font-size: 35px;
+}
+
 @media screen and (max-width:1100px) {
     .display{
         width: auto;
@@ -327,6 +331,9 @@ div li{
         align-items: center;
         justify-content: center;
     }
+    .other_info h1{
+        font-size: 28px;
+    }
 }
 
 @media screen and (max-width:420px) {
@@ -349,6 +356,10 @@ div li{
     .head-pic img{
         object-fit:cover;
         width: 100%;
+    }
+
+    .other_info h1{
+        font-size: 24px;
     }
 
 }

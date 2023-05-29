@@ -4,6 +4,7 @@ import './Container.css';
 import { getTrending, getTop, getUpcoming } from "./api/functions";
 import { Button } from "@mui/material";
 import Layout from "../Layout/Layout";
+import Loader from "../Layout/Loader";
 
 
 const MoviesPage = (props) => {
@@ -11,7 +12,6 @@ const MoviesPage = (props) => {
     const [data, setdata] = useState(null);
     const [page, setPage] = useState(1);
     const [isLoading, setLoad] = useState(true);
-    let isError = false;
 
 
     useEffect(() => {
@@ -90,9 +90,6 @@ const MoviesPage = (props) => {
     if (isLoading) {
         message = "Loading...."
     }
-    else if (isError) {
-        message = "Error"
-    }
     let Tag = "";
     if (props.type === "all") {
         Tag = "Trending Right Now"
@@ -108,8 +105,9 @@ const MoviesPage = (props) => {
             <div className="full_page">
                 <h1 className="headline">
                     {
-                        isLoading || isError ?
-                            (<div className="Loading"><div>{message}</div></div>) :
+                        isLoading ?
+                            <Loader/>
+                            :
                             (props.page === "upcoming") ?
                                 (<div>Upcoming Movies</div>) :
                                 (<>{Tag}<div style={{ color: "red" }}> {media} </div></>)

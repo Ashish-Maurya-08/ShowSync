@@ -4,13 +4,14 @@ import { Button,TextField } from "@mui/material"
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import './Form.css';
+import Loader from "../Layout/Loader";
  
  
 
 const Login=(props)=>{
   var navigate=useNavigate();
 
-  // const [isLoading, setLoad] = useState(false);
+  const [isLoading, setLoad] = useState(false);
   useEffect(() => {
   if(props.token){
     navigate('/');
@@ -35,6 +36,7 @@ const Login=(props)=>{
   }
 
   const handleLogin=(e)=>{
+    setLoad(true);
     const regex= new RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$");
     e.preventDefault();
     if(regex.test(userData.username)){
@@ -46,22 +48,33 @@ const Login=(props)=>{
         if(res.status===200){
           localStorage.setItem("data", JSON.stringify(res.data));
           props.setToken(res.data.token);
+          setLoad(false)
           alert("Login Successful")
           navigate("/");
         }
       })
       .catch((err)=>{
         console.log(err);
-        alert(err.response.data.message);
+        setLoad(false)
+        if(err.response.data.message){
+          alert(err.response.data.message);
+    
+        }
+        else{
+          alert("Something went wrong");
+        }
       })
     }
     else{
+      setLoad(false)
       alert("Please enter a valid email address");
     }
+  
   }
 
   return(
     <div className="main">
+    {isLoading ? <Loader/> :
     <div className="form">
     <h1 className="heading" style={{color:"grey"}}>Welcome Back!</h1>
       <form>
@@ -71,6 +84,7 @@ const Login=(props)=>{
         <div className="link">New User ? <Link to='/signup'>SignUp</Link></div>
       </form>
     </div>
+    }
     </div>
   )
 }

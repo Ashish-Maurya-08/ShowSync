@@ -4,11 +4,13 @@ import { getSearch } from "./api/functions";
 import MoviesContainer from "./MoviesContainer";
 import { Button } from "@mui/material";
 import Layout from "../Layout/Layout";
+import Loader from "../Layout/Loader";
 const Search = () => {
 
     const [query, setQuery] = useState();
     const [result, setRes] = useState();
     const [page, setPage] = useState(1);
+    const [isLoading, setLoad] = useState(false);
 
     const prevPage = () => {
         setPage(page - 1);
@@ -47,12 +49,21 @@ const Search = () => {
                 if (res.results.length > 0) {
                     setRes(res.results);
                 }
+                setLoad(false);
             })
 
     }
 
     const handleQuery = (e) => {
         setQuery(e.target.value);
+        if(e.target.value.length===0)
+        {
+            setRes(null);
+            setLoad(false);
+        }
+        else{
+            setLoad(true);
+        }
     }
 
 
@@ -79,6 +90,9 @@ const Search = () => {
                     ))
                 }
             </div>
+            {
+                isLoading ? <Loader /> : <></>
+            }
 
             {result && query ?
                 <div className="navigation">

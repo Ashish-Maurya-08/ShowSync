@@ -8,7 +8,7 @@ import notFound from "../notFound.png";
 import Layout from "../Layout/Layout";
 import { AddtoList } from "../Components/api/server"
 import List from "./ListContainer";
-import { useQuery } from "@tanstack/react-query";
+import Loader from '../Layout/Loader'
 
 const DetailPage = (props) => {
     const { id } = useParams()
@@ -21,6 +21,7 @@ const DetailPage = (props) => {
     const [recommendations, setRecommendations] = useState();
     const [similar, setSimilar] = useState();
     const [provider, setProvider] = useState();
+    console.log(detail);
 
     
 
@@ -179,7 +180,7 @@ const DetailPage = (props) => {
                                                     <li>
                                                         <span className="bold">Runtime:</span>
                                                         {detail.episode_run_time && detail.episode_run_time.length !== 0 ?
-                                                            (<span className="dull">{detail.episode_run_time} min/ep</span>) :
+                                                            (<span className="dull">{detail.episode_run_time[0]} min/ep</span>) :
                                                             detail.last_episode_to_air ?
                                                                 (<span className="dull">{detail.last_episode_to_air.runtime} min/ep</span>) : (<></>)
                                                         }
@@ -252,23 +253,13 @@ const DetailPage = (props) => {
                             </div>
                         </div>
                     </div>
-                    <div className='cast'>
-                        {cast && cast.length > 0 &&
-                            <h1>Cast</h1>
-                        }
-                        <div className="listContainer">
-                            {cast && cast.map((item) => {
-                                return (
-                                    <List key={item.id} id={item.id} type="person" title={item.title || item.name} poster={item.profile_path} char={item.character} />
-                                )
-                            })
-                            }
-                        </div>
-                    </div>
+
+                    <div className="other_info">
+                    
                     <div className='recommend'>
                         {
                             recommendations && recommendations.length > 0 &&
-                            <h1>Recommended</h1>
+                            <h1 className="tag">Recommended</h1>
                         }
                         <div className="listContainer">
                             {
@@ -280,11 +271,24 @@ const DetailPage = (props) => {
                             }
                         </div>
                     </div>
+                    <div className='cast'>
+                        {cast && cast.length > 0 &&
+                            <h1 className="tag">Cast</h1>
+                        }
+                        <div className="listContainer">
+                            {cast && cast.map((item) => {
+                                return (
+                                    <List key={item.id} id={item.id} type="person" title={item.title || item.name} poster={item.profile_path} char={item.character} />
+                                )
+                            })
+                            }
+                        </div>
+                    </div>
 
                     <div className='similar'>
                         {
                             similar && similar.length > 0 &&
-                            <h1>Similar {props.type === "tv" ? "TV Shows" : "Movies"}</h1>
+                            <h1 className="tag">Similar {props.type === "tv" ? "TV Shows" : "Movies"}</h1>
                         }
                         <div className="listContainer">
                             {
@@ -297,10 +301,9 @@ const DetailPage = (props) => {
                         </div>
                     </div>
                 </div>
-                :
-                <div className="Loading">
-                    <h1>Loading...</h1>
                 </div>
+                :
+                <Loader/>
             }
         </Layout>
     )

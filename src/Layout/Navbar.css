@@ -145,12 +145,37 @@ a{
   text-underline-offset: 5px;
 }
 
+.Loader{
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  color: white;
+  font-size: 30px;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.Loader img{
+  animation: spin infinite 1s linear;
+
+}
+
+@keyframes spin {
+  0% { 
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 
 
 @media screen and (min-width: 500px) and (min-width: 600px) {
   .dropMenu{
     display: none;
   }
+
 
   
 }
@@ -164,6 +189,8 @@ a{
   .showMobile{
     display: flex;
   }
-
-  
+  .Loader{
+    font-size: 20px;
+    font-family: Poppins ;
+  }
 }
