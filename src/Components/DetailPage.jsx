@@ -217,7 +217,7 @@ const DetailPage = (props) => {
                                                 </li> : <></>
                                         }
                                     </ul>
-                                    <div style={{ fontFamily: "Montserrat", color: "white", lineHeight: "30px" }}>
+                                    <div>
                                         {detail.overview}
                                     </div>
                                 </div>

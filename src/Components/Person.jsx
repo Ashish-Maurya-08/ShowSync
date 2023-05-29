@@ -44,6 +44,9 @@ const Person = (props) => {
                             <img src={`https://image.tmdb.org/t/p/original${person?.profile_path}`} alt="" />
                         </div>
                         <div className='person_info'>
+                        <div>
+                            <h1>{person?.name}</h1>
+                        </div>
                             <div>
                                 <div>
                                     Known For:
@@ -65,9 +68,7 @@ const Person = (props) => {
                         </div>
                     </div>
                     <div className='info'>
-                        <div>
-                            <h1>{person?.name}</h1>
-                        </div>
+                       
                         <div>
                         {
                             person?.biography && <h2>Biography</h2>

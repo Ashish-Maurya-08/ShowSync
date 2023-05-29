@@ -77,6 +77,11 @@
 .title{
     font-size: 1.2rem;
     font-family: kanit;
+    display: -webkit-box;
+    white-space: pre-wrap;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 .buttons{

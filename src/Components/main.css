@@ -1,5 +1,5 @@
 
-  @import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins&family=Kanit&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins&family=Kanit&family=Inconsolata&display=swap');
 
 h1 {
     font-family:kanit;
@@ -211,6 +211,15 @@ div li{
 
 .other_info h1{
     font-size: 35px;
+}
+
+.data-overview div{
+    font-family: Montserrat;
+    line-height: 30px;
+    display: -webkit-box;
+    -webkit-line-clamp: 8;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 @media screen and (max-width:1100px) {

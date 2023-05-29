@@ -4,6 +4,33 @@
     height: 100vh;
     justify-content: space-evenly;
     text-align: center;
+    font-family: Montserrat;
+    font-weight: normal;
+    padding-bottom: 3rem;
+}
+
+.person_page h1,h2,h3{
+    font-family: Poppins;
+    font-weight: normal;
+}
+
+p{
+    font-family:Montserrat;
+    padding: 0 1rem;
+    line-height: 30px;
+    letter-spacing: 0.5px;
+    font-weight: lighter;
+    display: -webkit-box;
+    white-space: pre-wrap;
+    -webkit-line-clamp: 11;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+p:hover{
+    overflow: visible;
+    -webkit-line-clamp: unset;
+    -webkit-box-orient: unset;
 }
 
 .person{
@@ -37,7 +64,8 @@
 }
 
 .person_info div div{
-    font-weight: bold;
+    /* font-weight: bold; */
+    font-family: Poppins;
     text-decoration: underline cyan 3px;
     text-underline-offset: 4px;
     padding-bottom: 0.2rem;
