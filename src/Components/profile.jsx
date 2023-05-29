@@ -111,7 +111,10 @@ const Profile = (props) => {
 
                 )
                 :
-                isLoading?<Loader/>:<></>
+                isLoading?<Loader/>:
+                <div>
+                 No List Found
+                </div>
 
 
             }
