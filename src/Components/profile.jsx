@@ -18,6 +18,7 @@ const Profile = (props) => {
     const [lists, setLists] = useState(null);
     const [update, setUpdate] = useState(false);
     const [hasList, setHasList] = useState(true);
+    const [isLoading,setLoad]=useState(false);
     // const [friends, setFriends] = useState(null);
 
     // get lists
@@ -44,13 +45,16 @@ const Profile = (props) => {
                 console.log(err);
             })
         }
+        setLoad(false);
     }
 
 
 
     useEffect(() => {
+        setLoad(true);
         getLists();
     }, [update, data])
+
     useEffect(() => {
         setLists(null);
     }, [update])
@@ -107,7 +111,8 @@ const Profile = (props) => {
 
                 )
                 :
-                <Loader />
+                isLoading?<Loader/>:<></>
+
 
             }
         </div>
