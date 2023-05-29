@@ -43,5 +43,35 @@ async function getSearch(query,page=1){
     return res.data;
 }
 
+async function getRecommendations(type,id){
+    const res=await axios.get(`${api.baseURL}/${type}/${id}/recommendations?api_key=${api.key}&region=IN`);
+    return res.data;
+}
 
-export{getDetail,getImages,getPopular,getSearch,getTrending,getTop,getUpcoming}
+async function getSimilar(type,id){
+    const res=await axios.get(`${api.baseURL}/${type}/${id}/similar?api_key=${api.key}&region=IN`);
+    return res.data;
+}
+
+async function getCast(type,id){
+    const res=await axios.get(`${api.baseURL}/${type}/${id}/credits?api_key=${api.key}&region=IN`);
+    return res.data;
+}
+
+async function getReviews(type,id){
+    const res=await axios.get(`${api.baseURL}/${type}/${id}/reviews?api_key=${api.key}&region=IN`);
+    return res.data;
+}
+
+async function getVideos(type,id){
+    const res=await axios.get(`${api.baseURL}/${type}/${id}/videos?api_key=${api.key}&region=IN`);
+    return res.data;
+}
+
+async function getProviders(type,id){
+    const res=await axios.get(`${api.baseURL}/${type}/${id}/watch/providers?api_key=${api.key}&region=IN`);
+    return res.data;
+}
+
+
+export{getDetail,getImages,getPopular,getSearch,getTrending,getTop,getUpcoming,getRecommendations,getSimilar,getCast,getReviews,getVideos,getProviders}

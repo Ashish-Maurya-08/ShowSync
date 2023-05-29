@@ -32,6 +32,7 @@ const Profile = (props) => {
                 }
                 if (res.lists) {
                     setLists(res.lists)
+                    setHasList(true);
                 }
                 else {
                     console.log("no lists");
