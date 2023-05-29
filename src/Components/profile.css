@@ -4,6 +4,7 @@
     font-size: 1.2rem;
     /* height: 100vh; */
     padding-bottom: 5vh;
+    padding-top: 8vh;
 }
 
 .tag{
@@ -11,8 +12,6 @@
     text-decoration:underline aqua;
     text-underline-offset: 6px;
     padding: 1rem 0;
-    /* font-weight: bold; */
-    /* text-decoration: underline; */
 }
 
 .profile_nav{
@@ -57,9 +56,8 @@
 }
 
 .list_items{
-    /* max-height: 10vh; */
-    min-width: 14rem;
-    max-width: 14rem;
+    min-width: 13rem;
+    max-width: 13rem;
 }
 
 .smallList{

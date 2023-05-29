@@ -7,6 +7,7 @@ import { GetList } from "./api/server";
 import List from "./List";
 import './profile.css'
 import Loader from "../Layout/Loader";
+import Layout from "../Layout/Layout";
 
 
 const Profile = (props) => {
@@ -79,6 +80,7 @@ const Profile = (props) => {
 
 
     return (
+        <Layout>
         <div className="profile_page">
             <div className="profile_nav">
                 <h1>Welcome, {data.user}</h1>
@@ -119,6 +121,7 @@ const Profile = (props) => {
 
             }
         </div>
+        </Layout>
     );
 }
 

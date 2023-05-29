@@ -114,7 +114,7 @@ const DetailPage = (props) => {
         <Layout>
             {
                 detail ?
-                <div id="scroll" style={{ maxHeight: "100vh", overflow: "scroll" }}>
+                <div id="scroll" style={{ paddingBottom:"4rem" }}>
                     <div className='head-pic'>
                         <img
                             className="desktop" src={`${api.backdrop}${detail.backdrop_path}`} alt="Loading" >

@@ -16,6 +16,7 @@ h1 {
     height: 80vh;
     background-color:rgba(0, 0, 0, 0.71);
     padding-bottom: 3rem;
+
     position: relative;
     overflow: hidden;
 }
@@ -169,10 +170,9 @@ div li{
     color: white;
     text-shadow: -4px 3px 10px #000000;
     text-align:start ;
-    padding:0.7rem 0 ;
     padding-left: 35%;
     margin: 0;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(8px);
 }
 
 

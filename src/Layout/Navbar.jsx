@@ -64,7 +64,7 @@ const NavBar = (props) => {
           <Link to="/search"><SearchIcon /></Link>
         </div>
         <div>
-          <Link to="/" className="showsync">ShowSync</Link>
+          <Link to="/" className="showsync" onClick={toggleMenu}>ShowSync</Link>
         </div>
         <div style={{ color: "white " }} onClick={toggleMenu}>
           <MenuIcon color="white"/>
