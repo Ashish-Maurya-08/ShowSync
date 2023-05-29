@@ -21,6 +21,7 @@ const DetailPage = (props) => {
     const [recommendations, setRecommendations] = useState();
     const [similar, setSimilar] = useState();
     const [provider, setProvider] = useState();
+
     
 
 
@@ -87,6 +88,7 @@ const DetailPage = (props) => {
             scroll.scrollTop = 0;
         }
     }, [props.type, id])
+    
 
 
 
@@ -207,7 +209,7 @@ const DetailPage = (props) => {
                                                 </li>
                                             ) : <></>}
                                         {
-                                            detail.genres ?
+                                            detail.genres && detail.genres.length>0 ?
                                                 <li>
                                                     <span className="bold">Genre:</span>
                                                     <span className="dull">{detail.genres[0].name}</span>
