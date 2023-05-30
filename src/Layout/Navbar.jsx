@@ -26,10 +26,13 @@ const NavBar = (props) => {
     }
   }
 function hideMenu(){
+if(menu=="show"){
 setmenu("hideAni");
       setTimeout(()=>{
         setmenu("hide");
       },400)
+}
+
 }
 
 
