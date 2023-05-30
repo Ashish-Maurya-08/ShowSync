@@ -25,6 +25,14 @@ const NavBar = (props) => {
       },400)
     }
   }
+function hideMenu(){
+setmenu("hideAni");
+      setTimeout(()=>{
+        setmenu("hide");
+      },400)
+}
+
+
 
   return (
     <div className="navContainer">
@@ -64,7 +72,7 @@ const NavBar = (props) => {
           <Link to="/search"><SearchIcon /></Link>
         </div>
         <div>
-          <Link to="/" className="showsync" onClick={toggleMenu}>ShowSync</Link>
+          <Link to="/" className="showsync" onClick={hideMenu}>ShowSync</Link>
         </div>
         <div style={{ color: "white " }} onClick={toggleMenu}>
           <MenuIcon color="white"/>
