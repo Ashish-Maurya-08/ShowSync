@@ -27,11 +27,13 @@ const MoviesPage = (props) => {
         return () => {
             cancel = false;
         }
+        
     }, [props.page,page])
 
 
 
     useEffect(() => {
+        
         setPage(1);
     }, [props.page])
 
@@ -76,7 +78,6 @@ const MoviesPage = (props) => {
 
 
     let media = props.type;
-    let message = ""
     if (props.type === "all") {
         media = ""
     }
@@ -85,10 +86,6 @@ const MoviesPage = (props) => {
     }
     else if (props.type === "tv") {
         media = " Tv Shows"
-    }
-
-    if (isLoading) {
-        message = "Loading...."
     }
     let Tag = "";
     if (props.type === "all") {
@@ -102,7 +99,7 @@ const MoviesPage = (props) => {
     }
     return (
         <Layout>
-            <div className="full_page">
+            <div className="full_page" id="scroll">
                 <h1 className="headline">
                     {
                         isLoading ?

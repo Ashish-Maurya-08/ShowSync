@@ -21,7 +21,6 @@ const DetailPage = (props) => {
     const [recommendations, setRecommendations] = useState();
     const [similar, setSimilar] = useState();
     const [provider, setProvider] = useState();
-    console.log(detail);
 
     
 
@@ -77,7 +76,7 @@ const DetailPage = (props) => {
     }, [detail])
 
     useEffect(() => {
-        let scroll = document.getElementById("scroll");
+        // let scroll = document.getElementById("scroll");
         setDetail();
         setCast();
         setRecommendations();
@@ -85,9 +84,10 @@ const DetailPage = (props) => {
         setProvider();
 
         getDetails();
-        if (scroll) {
-            scroll.scrollTop = 0;
-        }
+        // if (scroll) {
+            // scroll.scrollTop = 0;
+            // scroll.scrollTo(0,0);
+        // }
     }, [props.type, id])
     
 
@@ -114,7 +114,7 @@ const DetailPage = (props) => {
         <Layout>
             {
                 detail ?
-                <div id="scroll" style={{ paddingBottom:"4rem" }}>
+                <div id="scroll">
                     <div className='head-pic'>
                         <img
                             className="desktop" src={`${api.backdrop}${detail.backdrop_path}`} alt="Loading" >
