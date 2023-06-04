@@ -16,21 +16,25 @@ function CheckToken() {
         return false;
     }
     api = axios.create({
-        // baseURL:"http://localhost:5000/",
         baseURL: "https://show-sync-backend.vercel.app/",
         headers: {
-            "authorization": `Bearer ${token}`
-        }
+            "authorization": `Bearer ${token}`,
+            "Content-Type": "application/json",
+            "Allow-Control-Allow-Origin": "*",
+
+        },
+  
     })
     return true;
 }
 
 
 let api = axios.create({
-    // baseURL:"http://localhost:5000/",
     baseURL: "https://show-sync-backend.vercel.app/",
     headers: {
-        "authorization": `Bearer ${token}`
+        "authorization": `Bearer ${token}`,
+        "Content-Type": "application/json",
+        "Allow-Control-Allow-Origin": "*",
     }
 })
 

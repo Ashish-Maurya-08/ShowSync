@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import './Form.css';
 import Loader from "../Layout/Loader";
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
  
  
 
@@ -72,11 +73,16 @@ const Login=(props)=>{
   
   }
 
-  return(
+  return( 
+    <>
+    <div className="home">
+    <ChevronLeftIcon/>
+      <Link to='/'><h3>Home</h3></Link>
+    </div>
     <div className="main">
     {isLoading ? <Loader/> :
     <div className="form">
-    <h1 className="heading" style={{color:"grey"}}>Welcome Back!</h1>
+    <h1 className="heading">Welcome Back!</h1>
       <form>
         <TextField type="text" label="Email" name="username" required="true" onChange={(e)=>handleChange(e)}/>
         <TextField type="password" label="Password" name="password" required onChange={(e)=>handleChange(e)}/>
@@ -86,6 +92,7 @@ const Login=(props)=>{
     </div>
     }
     </div>
+    </>
   )
 }
 export default Login;

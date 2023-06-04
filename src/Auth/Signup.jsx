@@ -4,6 +4,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import React from "react";
 import './Form.css';
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 
 const SignUp=(props)=>{
 
@@ -15,11 +16,9 @@ const SignUp=(props)=>{
 }, [props.token])
   const api = axios.create({
     baseURL: "https://show-sync-backend.vercel.app/",
-    // baseURL: "http://localhost:5000/",
     Headers: {
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
-        // "Authorization": "Bearer " + sessionStorage.getItem("token")
     }
 })
   const [data,setdata] =useState({
@@ -62,9 +61,15 @@ const SignUp=(props)=>{
 
 
   return(
+    <>
+
+    <div className="home">
+    <ChevronLeftIcon/>
+      <Link to='/'><h3>Home</h3></Link>
+    </div>
     <div className="main">
     <div className="form">
-    <h1 style={{color:"grey"}}>Welcome {data.username}</h1>
+    <h1 className="heading">Welcome {data.username}</h1>
       <form>
         <TextField required type="text" label="Username" name="username" onChange={(e)=>{handleChange(e)}}/>
         <TextField required type="text" label="Email" name="email" onChange={(e)=>{handleChange(e)}}/>
@@ -74,6 +79,7 @@ const SignUp=(props)=>{
       </form>
     </div>
     </div>
+    </>
   )
 }
 export default SignUp;

@@ -3,17 +3,32 @@
   /* background-image: url('./back.jpg'); */
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100vh;
+  height: 80%;
   display: flex;
   align-items: center;
   justify-content: center;
+  color: grey;
 }
 
+.heading{
+  /* font-family: Poppins; */
+  max-width: 100%;
+  position: relative;
+  text-overflow:ellipsis;
+  overflow:hidden;
+  line-clamp: 2;
+}
+
+.link{
+  font-family:montserrat;
+  font-size: 0.9rem;
+}
 
 .link a{
   text-decoration: none;
   color: black;
   font-weight: 700;
+  font-size: 1.1rem;
 }
 
 .link a:hover{
@@ -28,18 +43,35 @@
 }
 
 .form{
-  background-color:aliceblue;;
-  padding: 30px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   border-radius: 10px;
+  padding: 30px;
+  width: 20rem;
 
+}
+
+.home{
+  display: flex;
+  align-items: center;
+  height: 10%;
+  padding-left: 1rem;
 }
 
 .form form{
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 15px;
-  width: 20rem;
+  align-items: center;
+  gap: 10px;
+  width:90%;
+}
+
+.form form div{
+  width: 100%;
 }
 
 .button{
@@ -47,10 +79,20 @@
 }
 
 @media screen and (max-width: 800px) {
-
-  .form form{
+  .heading{
+    margin:0.6rem 0;
+    font-size: 1.7rem;
+  }
+  .form{
     width: 15rem;
-    transition: all 400ms ease-in-out;
+  }
+  .form form{
+    width: 100%;
+  }
+
+  .home a{
+    /* height: 5%; */
+    font-size: 1rem;
   }
   
 }
