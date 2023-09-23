@@ -112,7 +112,6 @@ const DetailPage = (props) => {
     }, [detail])
 
     useEffect(() => {
-        // let scroll = document.getElementById("scroll");
         setDetail();
         setCast();
         setRecommendations();
@@ -120,10 +119,6 @@ const DetailPage = (props) => {
         setProvider();
 
         getDetails();
-        // if (scroll) {
-        // scroll.scrollTop = 0;
-        // scroll.scrollTo(0,0);
-        // }
     }, [props.type, id])
 
 
@@ -150,7 +145,7 @@ const DetailPage = (props) => {
         <Layout>
             {
                 detail ?
-                    <div id="scroll">
+                    <>
                         <div className='head-pic'>
                             <img
                                 className="desktop" src={`${api.backdrop}${detail.backdrop_path}`} alt="Loading" >
@@ -291,17 +286,17 @@ const DetailPage = (props) => {
                         </div>
 
 
+                            <h2>Watch Now</h2>
                             
                             <div className="vid">
-                            <iframe
+                            <iframe id="vidsrc"
                                 src={source}
                                 frameBorder="0"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                 allowFullScreen
-                                width="853"
-                                height="480"
+                                title="vidsrc"
                                 />
-                        </div>
+                            </div>
 
                         
                         <div className="other_info">
@@ -351,7 +346,7 @@ const DetailPage = (props) => {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </>
                     :
                     <Loader />
             }

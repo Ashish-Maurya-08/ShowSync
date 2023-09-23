@@ -223,6 +223,16 @@ div li{
     overflow: hidden;
 }
 
+.vid{
+    height: auto;
+    width: 100%;
+}
+
+#vidsrc{
+    width: 65vw;
+    height: 37vw;
+}
+
 @media screen and (max-width:1100px) {
     .display{
         width: auto;
@@ -288,6 +298,11 @@ div li{
 }
 
 @media screen and (max-width:600px) {
+
+    #vidsrc{
+        width: 90vw;
+        height: 51vw;
+    }
 
     .head-pic{
         height: 60vh;
@@ -373,3 +388,4 @@ div li{
     }
 
 }
+
