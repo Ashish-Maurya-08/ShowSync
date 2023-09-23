@@ -10,7 +10,6 @@ import { AddtoList } from "../Components/api/server"
 import List from "./ListContainer";
 import Loader from '../Layout/Loader'
 import { getExternalIDs } from "./api/functions";
-import ReactPlayer from 'react-player';
 
 const DetailPage = (props) => {
     const { id } = useParams()
