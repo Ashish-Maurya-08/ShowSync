@@ -3,7 +3,7 @@
   /* background: linear-gradient(45deg, rgba(16,11,108,1) 0%, rgba(22,55,130,1) 17%, rgba(31,123,186,1) 37%, rgba(4,50,106,1) 56%, rgba(13,93,93,1) 80%, rgba(17,20,112,1) 99%, rgba(37,156,180,1) 100%); */
   /* animation: flow infinite 20s ease-in-out; */
   text-align: center;
-  background-image: url("./Optimized-back.jpg");
+  background-image: url("back.jpg");
   background-repeat: no-repeat;
   background-size:cover;
   height: 100vh;

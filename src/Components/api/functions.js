@@ -64,7 +64,7 @@ async function getReviews(type,id){
 }
 
 async function getVideos(type,id){
-    const res=await axios.get(`${api.baseURL}/${type}/${id}/videos?api_key=${api.key}&region=IN`);
+    const res=await axios.get(`${api.baseURL}/${type}/${id}/videos?api_key=${api.key}&region=`);
     return res.data;
 }
 
@@ -79,9 +79,14 @@ async function getPerson(id){
 }
 
 async function getCredits(id){
-    const res=await axios.get(`${api.baseURL}/person/${id}/combined_credits?api_key=${api.key}&region=IN`);
+    const res=await axios.get(`${api.baseURL}/person/${id}/combined_credits?api_key=${api.key}`);
+    return res.data;
+}
+
+async function getExternalIDs(type,id){
+    const res=await axios.get(`${api.baseURL}/${type}/${id}/external_ids?api_key=${api.key}`);
     return res.data;
 }
 
 
-export{getDetail,getImages,getPopular,getSearch,getTrending,getTop,getUpcoming,getRecommendations,getSimilar,getCast,getReviews,getVideos,getProviders,getPerson,getCredits}
+export{getDetail,getImages,getPopular,getSearch,getTrending,getTop,getUpcoming,getRecommendations,getSimilar,getCast,getReviews,getVideos,getProviders,getPerson,getCredits,getExternalIDs}
