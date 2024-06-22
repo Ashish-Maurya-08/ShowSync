@@ -1,4 +1,5 @@
 import React, { } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
@@ -13,6 +14,7 @@ root.render(
     <React.StrictMode>
     <QueryClientProvider client={queryClient}>
     <App />
+    <Analytics />
     </QueryClientProvider>
     </React.StrictMode>
 );
