@@ -20,6 +20,8 @@ function App() {
     const [userId, setUserId] = useState(null);
     const [loggedIn, setLoggedIn] = useState(false);
 
+  
+
     const verify = async () => {
       try{
         const res = await verifyUser();

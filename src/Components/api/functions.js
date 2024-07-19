@@ -1,8 +1,8 @@
 import axios from "axios";
 
 const api={
-    baseURL:"https://api.themoviedb.org/3/",
-    key: process.env.TMDB_KEY,
+    baseURL:"https://api.themoviedb.org/3",
+    key: process.env.REACT_APP_TMDB_KEY,
     region:"IN",
     language:"hi-IN" 
 }
@@ -14,10 +14,11 @@ async function getDetail(id,type){
 }
 
 async function getTrending(type,duration="week",page=1){
-
+ 
     const res=await axios.get(`${api.baseURL}/trending/${type}/${duration}?page=${page}&api_key=${api.key}&region=IN`)
     return res.data;
 }
+
 async function getPopular(type,page=1){
     const res=await axios.get(`${api.baseURL}/${type}/popular?page=${page}&api_key=${api.key}&region=IN`)
     return res.data;
