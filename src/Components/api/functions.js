@@ -1,5 +1,4 @@
 import axios from "axios";
-require('dotenv').config()
 
 const api={
     baseURL:"https://api.themoviedb.org/3/",
