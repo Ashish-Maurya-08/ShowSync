@@ -1,11 +1,11 @@
 import axios from "axios";
-
+require('dotenv').config()
 
 const api={
     baseURL:"https://api.themoviedb.org/3/",
-    key:ENV.TMDB_KEY,
+    key: process.env.TMDB_KEY,
     region:"IN",
-    language:"hi-IN"
+    language:"hi-IN" 
 }
 
 async function getDetail(id,type){
