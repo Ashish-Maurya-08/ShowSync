@@ -2,7 +2,7 @@ import axios from "axios";
 
 const api={
     baseURL:"https://api.themoviedb.org/3",
-    key: process.env.REACT_APP_TMDB_KEY,
+    key: "8f8cbb967c55bb754e16cf464e655732",
     region:"IN",
     language:"hi-IN" 
 }
