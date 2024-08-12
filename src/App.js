@@ -11,6 +11,7 @@ import Profile from './Components/profile';
 import User from './Components/user';
 import { verifyUser } from './Components/api/server';
 import Person from './Components/Person';
+import Test from './test/test';
 
 
 function App() {
@@ -90,6 +91,7 @@ function App() {
           <Route path='/login' element={<Login setToken={setToken} token={token} loggedIn={loggedIn}/>}  />
           <Route path='/signup' element={<SignUp token={token} />} />
           <Route path='/profile' element={<Profile setToken={setToken} setUser={setUser} loggedIn={loggedIn}/>}/>
+          <Route path='/test' element={<Test/>} />
         </Routes>
       </BrowserRouter>
     </div>

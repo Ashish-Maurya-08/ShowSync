@@ -1,5 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Cairo:wght@500&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Whisper&display=swap");
+
+
 body {
   margin: 0;
   line-height: normal;
@@ -8,144 +11,104 @@ body {
   /* fonts */
   --font-cairo: Cairo;
   --font-outfit: Outfit;
-  
+  --font-whisper: Whisper;
+
   /* font sizes */
   --font-size-13xl: 20px;
-  
+
   /* Colors */
   --color-black: #000;
 }
 
-
-.navContainer{
-  backdrop-filter: blur(10px);
-  z-index: 2;
+.navSpace {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99;
   position: fixed;
-  height: auto;
+  width: 100%;
+}
+
+.navContainer {
+  position: relative;
+  padding: 10px;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  transition: height 0.7s ease-in-out;
 }
 
-/* .hideMobile{
-  width: 100%;
-} */
+.navContainer::before {
+  content: "";
+  position: absolute;
+  height: 70%;
+  width: 96%;
+  opacity: 0;
+  background-image: radial-gradient(
+    400px circle at var(--mouse-x) var(--mouse-y),
+    #ffffff2f,transparent 40%
+  );
+  z-index: -1;
+  border-radius: 40px;
+}
 
-.navbar{
-  border-radius:0 0 20px 20px;
-  height: 100%;
-  width: 100%;
+.navContainer:hover::before {
+  opacity: 1;
+  transition: opacity 0.9s ease-in-out;
+}
+
+
+.navbar {
+  border-radius: 40px;
+  background-color: #ffffff21;
+  backdrop-filter: blur(20px);
+  padding: 20px 40px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  gap: 2%;
+  gap: 1rem;
+  font-family: Outfit;
+  font-size: var(--font-size-13xl);
+  -webkit-backdrop-filter: blur(20px);
 }
 
-.mainNav{
-  width: 70%;
-  display: flex;
-  gap: 4%;
-
+.logo_placeholder {
+  padding:0 7rem;
 }
 
-.dropMenu{
-  text-decoration: underline aquamarine 2px;
-  text-underline-offset: 3px;
-  letter-spacing: 1px;
-  padding: 1rem;
-  display: none;
-  flex-direction: column;
-  gap: 0.7rem;
-  font-weight: 500;
-  /* font-variant: small-caps; */
-  text-transform:lowercase;
+.main_logo {
+  position:absolute;
 }
 
-.hide{
-  display: none;
-}
- 
-.hideAni{
-  animation: slideUp 0.5s ease-in-out;
-  display: flex;
-  gap: 0.7rem;
-}
-
-.show{
-  display: flex;
-  animation: slideDown 0.3s ease-in-out ;
-  height:8rem;
-}
-
-         
-@keyframes slideDown {
-  0% { 
-    opacity: 0;
-    height: 0;
-    transform: translateY(-50px)
-  }
-  100% {
-    opacity: 1;
-    height:8rem;
-    transform: translateY(0)
-  }
-}
-@keyframes slideUp {
-  0% { 
-    opacity: 1;
-    height:8rem;
-    transform: translateY(0px);
-  }
-
-  100% {
-    opacity: 0;
-    height: 0;
-    transform: translateY(-50px);
-  }
+.main_logo > a {
+  font-family: 'Whisper';
+  font-size: 2.6rem;
+  font-weight: 600;
+  color: #fff;
+  text-shadow: 0 0 10px #ffffff80;
 }
 
 
-
-.navbar div{
-  display: flex;
-  align-items:center;
-  justify-content: center;
-  text-shadow: -4px 3px 20px #000000a5;
-}
-
-.showMobile{
+.hide {
   display: none;
 }
 
-a{
+
+a {
   text-decoration: none;
   color: white;
   font-family: (var(--font-outfit));
   font-size: var(--font-size-13xl);
 }
 
-.showsync {
-  font-size: 30px;
-  font-variant: small-caps;
-  font-style: oblique;
-  color: white;
-  font-family: var(--font-cairo);
+.hover>a:hover {
+  color: #26fdc7;
+  transition: 0.2s;
 }
 
-.hover:hover{
-  text-decoration: underline tomato 3px;
-  text-underline-offset: 5px;
-}
 
-.login:hover{
-  text-decoration: underline aqua 3px;
-  text-underline-offset: 5px;
-}
 
-.Loader{
+
+.Loader {
   height: 80vh;
   display: flex;
   align-items: center;
@@ -153,44 +116,19 @@ a{
   gap: 0.5rem;
   color: white;
   font-size: 30px;
-  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 }
 
-.Loader img{
+.Loader img {
   animation: spin infinite 1s linear;
-
 }
 
 @keyframes spin {
-  0% { 
+  0% {
     transform: rotate(0deg);
   }
   100% {
     transform: rotate(360deg);
-  }
-}
-
-
-@media screen and (min-width: 500px) and (min-width: 600px) {
-  .dropMenu{
-    display: none;
-  }
-
-
-  
-}
-@media screen and (max-width: 600px) {
-  .navbar{
-    justify-content: space-around;
-  }
-  .hideMobile{
-    display: none;
-  }
-  .showMobile{
-    display: flex;
-  }
-  .Loader{
-    font-size: 20px;
-    font-family: Poppins ;
   }
 }
