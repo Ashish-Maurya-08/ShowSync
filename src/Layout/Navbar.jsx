@@ -28,7 +28,7 @@ const NavBar = (props) => {
         '--mouse-y': `${mousePosition.y}px`,
       }}>
       <div className="navbar">
-        <div className="hover"><Link to="/movies">Browse</Link></div>
+        <div className="hover"><Link to="/search">Browse</Link></div>
         <div className="logo_placeholder"></div>
         {
           data.user ? <div className="hover"><Link to="/profile">{data.user}</Link></div> :

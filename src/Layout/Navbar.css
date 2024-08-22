@@ -21,12 +21,13 @@ body {
 }
 
 .navSpace {
+  height: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 99;
   position: fixed;
   width: 100%;
+  z-index: 99;
 }
 
 .navContainer {
@@ -35,6 +36,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+
 }
 
 .navContainer::before {
@@ -85,6 +87,7 @@ body {
   font-weight: 600;
   color: #fff;
   text-shadow: 0 0 10px #ffffff80;
+  text-decoration: none;
 }
 
 
@@ -93,7 +96,7 @@ body {
 }
 
 
-a {
+.navbar a {
   text-decoration: none;
   color: white;
   font-family: (var(--font-outfit));
@@ -105,7 +108,39 @@ a {
   transition: 0.2s;
 }
 
+@media screen and (max-width: 450px) {
+  .navSpace {
+    height: 80px;
+  }
+  
+  .navContainer {
+    padding: 0px;
+  }
+  .navbar {
+    padding: 20px 25px;
+    font-size: 10px;
+  }
 
+  .navbar a {
+    font-size: 1rem;
+  }
+
+  .logo_placeholder {
+    padding: 0 5rem;
+  }
+
+  .main_logo > a {
+    font-size: 2rem;
+  }
+}
+
+
+
+
+
+
+
+/* Loading animation CSS */
 
 
 .Loader {

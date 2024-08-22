@@ -1,0 +1,52 @@
+{
+    "theatres":{
+        "title":"In Theatres",
+        "link":"list/movie/now_playing",
+        "type":"movie"
+    },
+    "top_rated":{
+        "title":"Top Rated Movies",
+        "link":"list/movie/top_rated",
+        "type":"movie"
+    },
+    "popular_tv":{
+        "title":"Popular Shows",
+        "link":"list/tv/popular",
+        "type":"tv"
+    },
+    "trending_movie":{
+        "title":"Trending Movies",
+        "link":"trending/movie",
+        "type":"movie"
+    },
+    "upcoming":{
+        "title":"Upcoming Movies",
+        "link":"list/movie/upcoming",
+        "type":"movie"
+    },
+    "trending_tv":{
+        "title":"Trending Shows",
+        "link":"trending/tv",
+        "type":"tv"
+    },
+    "top_rated_tv":{
+        "title":"Top Rated Shows",
+        "link":"list/tv/top_rated",
+        "type":"tv"
+    },
+    "popular":{
+        "title":"Popular Movies",
+        "link":"list/movie/popular",
+        "type":"movie"
+    },
+    "trending_all":{
+        "title":"Trending",
+        "link":"trending/all"
+    },
+
+    "airing_today":{
+        "title":"Airing Today",
+        "link":"list/tv/airing_today",
+        "type":"tv"
+    }
+}

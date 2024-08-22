@@ -3,7 +3,7 @@ const Layout = (props) => {
     return (
         <div style={{color:"white"}}>
         <NavBar/>
-        <main className="Content">{props.children}</main>
+        <main className="Children">{props.children}</main>
         </div>
     );
 }

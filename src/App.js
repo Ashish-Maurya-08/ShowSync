@@ -12,6 +12,7 @@ import User from './Components/user';
 import { verifyUser } from './Components/api/server';
 import Person from './Components/Person';
 import Test from './test/test';
+import Home from './Pages/Home/Home';
 
 
 function App() {
@@ -79,10 +80,7 @@ function App() {
       <BrowserRouter>
         {/* <Navbar /> */}
         <Routes>
-          <Route path='/' element={<MoviesPage type="all" page="main"/>} />
-          <Route path='/movies' element={<MoviesPage type="movie" page="movies"/>} />
-          <Route path='/tvshows' element={<MoviesPage type="tv" page="tvshows" />} />
-          <Route path='/upcoming' element={<MoviesPage page="upcoming" type="movie" />} />
+          <Route path='/' element={<Home/>} />
           <Route path="/search" element={<Search />} />
           <Route path='/movie/:id' element={<DetailPage type="movie"  setToken={setToken}/>} />
           <Route path='/tv/:id' element={<DetailPage type="tv" setToken={setToken}/>} />

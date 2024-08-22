@@ -72,24 +72,6 @@
   gap: 0.4rem;
 }
 
-.full_page {
-  padding-top: 8vh;
-  color: white;
-  font-family: Poppins;
-  font-size: 18px;
-}
-
-.navigation {
-  font-weight: bolder;
-  height: 7vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 5%;
-  font-family: Montserrat;
-}
-
-
 @keyframes fade_in_show {
   0% {
     opacity: 0.3;

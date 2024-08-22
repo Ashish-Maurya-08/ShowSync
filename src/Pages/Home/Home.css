@@ -1,0 +1,17 @@
+.home-page {
+    padding-top: 100px;
+    color: white;
+    font-family: Poppins;
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+  
+
+@media screen and (max-width: 450px) {
+    .home-page {
+        padding-top: 80px;
+        gap: 1rem;
+    }
+}
