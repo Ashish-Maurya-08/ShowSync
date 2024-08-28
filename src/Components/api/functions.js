@@ -2,7 +2,7 @@ import axios from "axios";
 
 const api={
     baseURL:"https://api.themoviedb.org/3",
-    key: "8f8cbb967c55bb754e16cf464e655732",
+    key: "fac5c2230550c28811b5a94ebc2eb78b",
     region:"IN",
     language:"hi-IN" 
 }
