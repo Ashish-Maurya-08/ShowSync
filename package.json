@@ -5,6 +5,7 @@
   "dependencies": {
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
+    "@gsap/react": "^2.1.1",
     "@mui/base": "^5.0.0-alpha.125",
     "@mui/icons-material": "^5.11.16",
     "@mui/material": "^5.13.0",
@@ -15,6 +16,7 @@
     "@vercel/analytics": "^1.3.1",
     "@vercel/speed-insights": "^1.0.12",
     "axios": "^1.3.5",
+    "gsap": "^3.12.5",
     "qs": "^6.11.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

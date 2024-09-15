@@ -123,8 +123,8 @@
     width: calc(100% - 12rem);
     gap: 2rem;
   }
-    
 }
+
 
 /* Media Container CSS */
 
@@ -136,22 +136,72 @@
   border-radius: 10px;
 }
 
+
+.listContent:hover {
+  transition: all 0.5s ease-in-out;
+  transform: scale(1.1);
+  z-index: 2;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+
 .listContent > a {
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 3;
 }
 
-.listContent > a > img {
+.poster-image{
   height: 100%;
   object-fit: contain;
   border-radius: 10px;
 }
+.poster-image:hover {
+  transition: all 0.5s ease-in-out;
+  mask: linear-gradient(to top, rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 1));
+}
+
+.blur-image {
+  filter: blur(3px);
+}
+.blur-image:hover {
+  filter: blur(3px);
+}
+
+.no-poster {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  position: relative;
+}
+
+
+.poster-name {
+  position: absolute;
+  z-index: 2;
+  color: white;
+  font-size: 1.5rem;
+  font-family: Outfit;
+  text-decoration: none;
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
 
 @media screen and (max-width: 450px) {
   .listContent {
     height: 80%;
+  }
+  .poster-name {
+    font-size: 1.2rem;
   }
 }
 
@@ -159,4 +209,35 @@
   .listContent {
     height: 85%;
   }
+}
+
+
+/* Glassmorphism CSS */
+
+.glass-morph {
+  position: relative;
+  border-radius: inherit;
+}
+
+.glass-morph::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+
+  background-image: radial-gradient(
+    800px circle at var(--mouse-x) var(--mouse-y),
+    rgba(255,255,255,0.06),transparent 40%
+  );
+  opacity: 0;
+  border-radius: inherit;
+  z-index: -1;
+
+}
+
+.glass-morph:hover::before {
+  opacity: 1;
+  transition: all 0.5s ease-in-out;
 }

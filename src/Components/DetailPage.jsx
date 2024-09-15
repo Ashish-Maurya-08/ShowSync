@@ -4,7 +4,7 @@ import './main.css'
 import { getDetail, getCast, getRecommendations, getSimilar, getProviders } from "./api/functions"
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import HeartBrokenIcon from '@mui/icons-material/HeartBroken';
-import notFound from "../notFound.png";
+import notFound from "../Images/notFound.png";
 import Layout from "../Layout/Layout";
 import { AddtoList } from "../Components/api/server"
 import List from "./ListContainer";

@@ -5,17 +5,17 @@ import React, { useState, useRef, useEffect } from "react";
 import axios from "axios";
 import MediaContainer from "./MediaContainer";
 import "./Utils.css";
+import { BACKEND_URL } from "./Constants";
 
 const ContentRows = (props) => {
 
-    console.log(props.list);
     
 
     // Variables 
     const [data, setData] = useState([]);
     const [scrollSize, setScrollSize] = useState(0);
     const ScrollRef = useRef(null);
-    const apiURL = "http://172.16.18.12:5000/api"
+    const apiURL = BACKEND_URL;
 
     // Changing the scroll size when the window is resized
     useEffect(() => {
@@ -37,7 +37,6 @@ const ContentRows = (props) => {
 
     // handling the scroll button
     const Scroll = (offset) => {
-        console.log(ScrollRef, offset);
         if (ScrollRef.current) {
             ScrollRef.current.scrollLeft += offset;
         }
@@ -47,7 +46,6 @@ const ContentRows = (props) => {
     const fetchData = async () => {
         axios.get(`${apiURL}/${props.list?.link}`)
         .then((response) => {
-                console.log(response.data);
                 setData(response.data);
             })
         .catch((error) => {

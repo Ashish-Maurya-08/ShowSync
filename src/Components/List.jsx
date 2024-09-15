@@ -1,7 +1,6 @@
 import {getDetail} from './api/functions'
 import { useState,useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './profile.css'
 import { Link } from 'react-router-dom';
 import { removeFromList,setWatched } from './api/server';
 

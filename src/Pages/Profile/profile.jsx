@@ -1,13 +1,13 @@
-import userContext from "../context/userData"
+import userContext from "../../context/userData"
 import { useContext, useEffect, useState } from "react";
 import { Button } from "@mui/material";
 // import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { GetList } from "./api/server";
-import List from "./List";
+import { GetList } from "../../Components/api/server";
+import List from "../../Components/List";
 import './profile.css'
-import Loader from "../Layout/Loader";
-import Layout from "../Layout/Layout";
+import Loader from "../../Layout/Loader";
+import Layout from "../../Layout/Layout";
 
 
 const Profile = (props) => {
@@ -22,6 +22,7 @@ const Profile = (props) => {
     const [isLoading,setLoad]=useState(false);
     // const [friends, setFriends] = useState(null);
 
+    
     // get lists
     async function getLists() {
         if (data) {

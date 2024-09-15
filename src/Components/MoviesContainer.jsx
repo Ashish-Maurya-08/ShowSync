@@ -1,7 +1,7 @@
 
 import "./Container.css";
 import { Link } from "react-router-dom";
-import notFound from "../notFound.png"
+import notFound from "../Images/notFound.png";
 
 
 const MoviesContainer = (props) => {

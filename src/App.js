@@ -7,7 +7,7 @@ import Search from "./Components/Search";
 import Login from './Auth/Login';
 import SignUp from './Auth/Signup';
 import userContext from './context/userData';
-import Profile from './Components/profile';
+import Profile from './Pages/Profile/profile';
 import User from './Components/user';
 import { verifyUser } from './Components/api/server';
 import Person from './Components/Person';

@@ -1,6 +1,6 @@
 
 import React from 'react';  
-import Load from '../loader.png'
+import Load from '../Images/loader.png'
 
 function Loader(){
     return(

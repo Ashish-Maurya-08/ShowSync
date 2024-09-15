@@ -1,98 +1,178 @@
-.main{
-  /* background-color: darkgray; */
-  /* background-image: url('./back.jpg'); */
-  background-repeat: no-repeat;
-  background-size: cover;
+.login_page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+
+}
+
+.home {
+  display: flex;
+  align-items: center;
+  height: 10%;
+  padding-left: 1.5rem;
+  color: white;
+}
+
+.backButton {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+  color: white;
+  font-size: 1.3rem;
+}
+
+
+.backButton:hover > .backArrow{
+  color: #26fdc7;
+  transition: all  0.5s ease-in-out;
+}
+
+.main {
   height: 80%;
+  /* width: 100%;
+  position: absolute; */
   display: flex;
   align-items: center;
   justify-content: center;
   color: grey;
 }
 
-.heading{
-  /* font-family: Poppins; */
+.glass-container {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5.8px);
+  -webkit-backdrop-filter: blur(5.8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: inherit;
+  padding: 30px 20px;
+  width: 22rem;
+  gap: 1rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+}
+
+.form > div {
+  width: 100%;
+  overflow: hidden;
+}
+
+
+.heading {
+  font-family: Outfit;
+  font-size: 1.8rem;
+  color: white;
   max-width: 100%;
   position: relative;
-  text-overflow:ellipsis;
-  overflow:hidden;
-  line-clamp: 2;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
-.link{
-  font-family:montserrat;
+.input-field {
+  width: 80%;
+  height: 100%;
+  border-radius: 36px;
+  font-size: 1rem;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  outline: none;
+  padding: 0.8rem 1.3rem;
+  background-color: transparent;
+  color: white;
+  font-family: Outfit;
+}
+
+.input-field:focus {
+  border: 2px solid white;
+}
+
+.input-field::placeholder {
+  color: white;
+}
+
+.gap-1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.width-100 {
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.input-icon {
+  position: absolute;
+  right: 1.8rem;
+  color: white;
+}
+
+.link {
+  font-family: montserrat;
   font-size: 0.9rem;
+  color: white;
 }
 
-.link a{
+.link > a {
   text-decoration: none;
-  color: black;
+  color: White;
   font-weight: 700;
   font-size: 1.1rem;
 }
 
-.link a:hover{
-  color: rgb(18, 73, 170);
+.link a:hover {
+  color: #26fdc7;
   text-decoration: underline;
+  transition: all 0.5s ease-in-out;
 }
 
-
-.back{
-  height: 100vh;
-
-}
-
-.form{
+.button {
+  width: 50%;
+  padding: 0.7rem 1rem;
+  border-radius: 36px;
   background-color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border-radius: 10px;
-  padding: 30px;
-  width: 20rem;
-
-}
-
-.home{
-  display: flex;
-  align-items: center;
-  height: 10%;
-  padding-left: 1rem;
-}
-
-.form form{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  width:90%;
-}
-
-.form form div{
-  width: 100%;
-}
-
-.button{
-  width: 30%;
+  font-size: 1.2rem;
+  font-weight: 900;
+  font-family: Outfit;
+  outline: none;
+  border: none;
 }
 
 @media screen and (max-width: 800px) {
-  .heading{
-    margin:0.6rem 0;
+  .heading {
+    margin: 0.6rem 0;
     font-size: 1.7rem;
   }
-  .form{
+  .form {
     width: 15rem;
   }
-  .form form{
+  .form form {
     width: 100%;
   }
 
-  .home a{
+  .home a {
     /* height: 5%; */
     font-size: 1rem;
   }
-  
 }
