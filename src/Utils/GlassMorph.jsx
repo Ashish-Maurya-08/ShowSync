@@ -6,6 +6,7 @@ const GlassMorph = ({children}) => {
     const glassRef = useRef(null);
     const [mousePosition, setMousePosition] = React.useState({ x: 0, y: 0 });
 
+    // Update the mouse position when the mouse moves
     const handleMouseMove = (e) => {
         const rect = glassRef.current.getBoundingClientRect();
         setMousePosition({
@@ -22,7 +23,6 @@ const GlassMorph = ({children}) => {
         '--mouse-x': `${mousePosition.x}px`,
         '--mouse-y': `${mousePosition.y}px`,
         }} 
-
         >
             {children}
         </div>

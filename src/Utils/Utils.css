@@ -47,6 +47,7 @@
   align-items: center;
   width: calc(100% - 35rem);
   gap: 3rem;
+  padding:0rem 1rem ;
   overflow-x: scroll;
   overflow-y: hidden;
   scroll-behavior: smooth;
@@ -138,8 +139,6 @@
 
 
 .listContent:hover {
-  transition: all 0.5s ease-in-out;
-  transform: scale(1.1);
   z-index: 2;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   border-radius: 10px;

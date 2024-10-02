@@ -6,6 +6,8 @@ import axios from "axios";
 import MediaContainer from "./MediaContainer";
 import "./Utils.css";
 import { BACKEND_URL } from "./Constants";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
 const ContentRows = (props) => {
 
@@ -26,6 +28,19 @@ const ContentRows = (props) => {
         observer.observe(Current)
         return () => Current && observer.unobserve(Current)
     }, [])
+
+    useGSAP(() =>{
+        gsap.fromTo(ScrollRef.current, {
+            x: 100,
+            opacity: 0,
+        }, {
+            x: 0,
+            opacity: 1,
+        })
+    },{
+        scope: ScrollRef
+    }
+    )
 
 
     // Getting the data from the API
