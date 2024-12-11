@@ -29,14 +29,14 @@ const DetailPage = (props) => {
     function Loadvideo(){
 
         if (props.type === 'movie') {
-            setSource(`https://vidsrc.me/embed/movie/${id}`)
+            setSource(`https://embed.su/embed/movie/${id}`)
         }
     
         else if (props.type==='tv'){
             if (external){
                 console.log(external,source);
                 const imdb_id=external.imdb_id;
-                setSource(`https://vidsrc.me/embed/tv/${imdb_id}`)
+                setSource(`https://embed.su/embed/tv/${id}/1/1`)
             }
         }
 
