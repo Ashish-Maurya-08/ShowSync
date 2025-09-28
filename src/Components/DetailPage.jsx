@@ -34,15 +34,12 @@ const DetailPage = (props) => {
     
         else if (props.type==='tv'){
             if (external){
-                console.log(external,source);
-                const imdb_id=external.imdb_id;
                 setSource(`https://player.videasy.net/tv/${id}/1/1?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&overlay=true&color=8B5CF6`)
             }
         }
 
     }
 
-    console.log(source);
 
     useEffect(() => {  
         Loadvideo();
