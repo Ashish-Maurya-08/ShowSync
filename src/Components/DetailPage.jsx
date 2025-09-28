@@ -29,14 +29,14 @@ const DetailPage = (props) => {
     function Loadvideo(){
 
         if (props.type === 'movie') {
-            setSource(`https://embed.su/embed/movie/${id}`)
+            setSource(`https://player.videasy.net/movie/${id}?overlay=true&color=8B5CF6`)
         }
     
         else if (props.type==='tv'){
             if (external){
                 console.log(external,source);
                 const imdb_id=external.imdb_id;
-                setSource(`https://embed.su/embed/tv/${id}/1/1`)
+                setSource(`https://player.videasy.net/tv/${id}/1/1?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&overlay=true&color=8B5CF6`)
             }
         }
 
