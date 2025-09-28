@@ -57,5 +57,9 @@
   "devDependencies": {
     "@tanstack/eslint-plugin-query": "^4.29.8",
     "dotenv": "^16.0.3"
+  },
+  "engines": {
+    "node": "22.20"
   }
+
 }
