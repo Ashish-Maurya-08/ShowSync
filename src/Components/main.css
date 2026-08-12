@@ -233,6 +233,64 @@ div li{
     height: 37vw;
 }
 
+.season-episode-selector {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+    margin: 1.5rem 0;
+    padding: 0 2rem;
+    flex-wrap: wrap;
+}
+
+.selector-group {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.selector-group label {
+    color: white;
+    font-weight: 200;
+    font-family: Poppins;
+    font-size: 1rem;
+    text-transform: none;
+    letter-spacing: 0.5px;
+}
+
+.dropdown-select {
+    padding: 0.7rem 1rem;
+    border-radius: 6px;
+    border: 2px solid rgba(79, 211, 180, 0.5);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-family: Poppins;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    min-width: 150px;
+}
+
+.dropdown-select:hover {
+    border-color: #4fd3b4;
+    background-color: rgba(0, 0, 0, 0.7);
+    box-shadow: 0 0 8px rgba(79, 211, 180, 0.3);
+}
+
+.dropdown-select:focus {
+    outline: none;
+    border-color: #4fd3b4;
+    box-shadow: 0 0 12px rgba(79, 211, 180, 0.4);
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.dropdown-select option {
+    background-color: #1a1a1a;
+    color: white;
+    padding: 0.5rem;
+}
+
 @media screen and (max-width:1100px) {
     .display{
         width: auto;
@@ -241,6 +299,9 @@ div li{
     }
     .mid-left >img{
         width: 220px;
+    }
+    .season-episode-selector {
+        padding: 0 1rem;
     }
 }
 
@@ -310,6 +371,28 @@ div li{
 
     .mid-bot-ul li span{
         font-size: 15px;
+    }
+
+    .season-episode-selector {
+        gap: 1rem;
+        padding: 0 1rem;
+        margin: 1rem 0;
+    }
+
+    .selector-group {
+        gap: 0.5rem;
+        flex: 1;
+        min-width: 140px;
+    }
+
+    .selector-group label {
+        font-size: 0.85rem;
+    }
+
+    .dropdown-select {
+        padding: 0.6rem 0.8rem;
+        min-width: 120px;
+        font-size: 0.9rem;
     }
 
     .overlay-data{

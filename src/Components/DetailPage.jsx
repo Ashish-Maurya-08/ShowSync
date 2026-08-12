@@ -16,6 +16,8 @@ const DetailPage = (props) => {
     const navigate = useNavigate();
     const [detail, setDetail] = useState();
     const [external, setExternal] = useState();
+    const [selectedSeason, setSelectedSeason] = useState(1);
+    const [selectedEpisode, setSelectedEpisode] = useState(1);
 
     async function getExternal() {
         await getExternalIDs(props.type, id)
@@ -29,15 +31,16 @@ const DetailPage = (props) => {
     function Loadvideo(){
 
         if (props.type == 'movie') {
-            setSource(`https://vidsrc.cc/v2/embed/movie/${id}`)
+            setSource(`https://cinemaos.tech/player/${id}`)
         }
     
         else if (props.type=='tv'){
             if (external){
-                console.log(external,source);
-                const imdb_id=external.imdb_id;
-                setSource(`https://vidsrc.cc/v2/embed/tv/${imdb_id}`)
+                // console.log(external,source);
+                // const imdb_id=external.imdb_id;
+                // setSource(`https://vidsrc.cc/v2/embed/tv/${imdb_id}?season=${selectedSeason}&episode=${selectedEpisode}`)
             }
+            setSource(`https://cinemaos.tech/player/${id}/${selectedSeason}/${selectedEpisode}`)
         }
 
     }
@@ -46,7 +49,7 @@ const DetailPage = (props) => {
 
     useEffect(() => {  
         Loadvideo();
-    }, [external])
+    }, [external, selectedSeason, selectedEpisode])
 
    
 
@@ -287,6 +290,40 @@ const DetailPage = (props) => {
 
 
                             <h2>Watch Now</h2>
+                            {
+                                props.type === 'tv' && detail && detail.number_of_seasons && (
+                                    <div className="season-episode-selector">
+                                        <div className="selector-group">
+                                            {/* <label>Season: </label> */}
+                                            <select 
+                                                value={selectedSeason} 
+                                                onChange={(e) => setSelectedSeason(Number(e.target.value))}
+                                                className="dropdown-select"
+                                            >
+                                                {Array.from({ length: detail.number_of_seasons }, (_, i) => (
+                                                    <option key={i + 1} value={i + 1}>
+                                                        Season {i + 1}
+                                                    </option>
+                                                ))}
+                                            </select>
+                                        </div>
+                                        <div className="selector-group">
+                                            {/* <label>Episode: </label> */}
+                                            <select 
+                                                value={selectedEpisode} 
+                                                onChange={(e) => setSelectedEpisode(Number(e.target.value))}
+                                                className="dropdown-select"
+                                            >
+                                                {Array.from({ length: detail.seasons.find(s => s.season_number === selectedSeason)?.episode_count || 0 }, (_, i) => (
+                                                    <option key={i + 1} value={i + 1}>
+                                                        Episode {i + 1}
+                                                    </option>
+                                                ))}
+                                            </select>
+                                        </div>
+                                    </div>
+                                )
+                            }
                             
                             <div className="vid">
                             <iframe id="vidsrc"
